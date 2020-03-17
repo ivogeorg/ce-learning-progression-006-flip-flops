@@ -1,6 +1,6 @@
 # CPE 1040 - Spring 2020
 
-## Criteria for micro:bit JS programs
+## Criteria and guide for lab work and micro:bit programs
 
 ### 1. General requirements
 1. The (README)[README.md] should contain complete grammatically-correct senteces and well-formatted contents. Use the [Github Markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) as a reference.
