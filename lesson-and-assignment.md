@@ -16,6 +16,8 @@ This is lesson and assignment 006 for the Spring 2020 installment of the CPE 104
    4. Reference videos and materials _inline_.
    5. Supplement with _short_ original videos.
    6. Overview should state this format and identify prerequisites. (Link with previous.)
+   7. Link to [lesson 6](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit?usp=sharing).
+   8. Include a Learning How to Learn section at the very beginning and weave into [Introduction](#overview).
 1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
 2. Include video and/or guide for using handheld multimeters.
 3. Include lab-kit contents, user guide, and safety of operation.
