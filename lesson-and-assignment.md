@@ -11,16 +11,17 @@ This is lesson and assignment 006 for the Spring 2020 installment of the CPE 104
 **Conversion to Take-Home TODOs:**
 1. Turn into a lesson-n-assignment:
    1. Divide into read-try-do sections.
-   2. Structure lesson and assignment in parallel with mininal change. 
+   2. Structure lesson and assignment in parallel, section by section.
    3. Interleave the exposure and exploration parts. It should be a single progression.
    4. Reference videos and materials _inline_.
    5. Supplement with _short_ original videos.
    6. Overview should state this format and identify prerequisites. (Link with previous.)
    7. Link to [lesson 6](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit?usp=sharing).
    8. Include a Learning How to Learn section at the very beginning and weave into [Introduction](#overview).
+   3. Separate lab-kit doc:
+      1. Include lab-kit contents, user guide, and safety of operation. Link this l&a to new document.
+      2. Include video and/or guide for using handheld multimeters.
 1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
-2. Include video and/or guide for using handheld multimeters.
-3. Include lab-kit contents, user guide, and safety of operation.
 4. Add note that 74LS00 chips require 5V.
 5. Square wave gen in micro:bit:
    1. In separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
