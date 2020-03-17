@@ -42,7 +42,11 @@ This assignment introduces _flip-flops_, how they are built, and what circuits c
 
 ![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
 
-_Refer to the [requirements](requirements.md) for this assignment. Filling out the [README](README.md) for this repository is part of the assignment. Treat the README as your **lab notebook**. Refer to the [criteria](criteria.md) for submitted assignments!_
+**NOTE:** 
+1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the Lab Notebook for the study & submission. _It is a great aid for your study and the main component of your submission._
+2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
+2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
+4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
 
 #### Preparation
 
