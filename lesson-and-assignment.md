@@ -1,12 +1,12 @@
 # CPE 1040 - Spring 2020
 
-## Assignment 6: Flip-flops
+## Lesson & Assignment 006: Flip-flops
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-15   
-Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc      
+Last updated: 2020-03-17   
+Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87      
 
-This is assignment 6 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
+This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 **Conversion to Take-Home TODOs:**
 1. Turn into a lesson-n-assignment:
