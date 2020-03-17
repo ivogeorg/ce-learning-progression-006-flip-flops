@@ -4,9 +4,9 @@ Author: Ivo Georgiev, PhD
 Last updated: 2020-03-17   
 Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87      
 
-This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
-
 ![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
+
+This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 **NOTE:** 
 1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the **Lab Notebook** for the study & submission. _It is a great aid for your study and the main component of your submission._
@@ -14,42 +14,11 @@ This is lesson and assignment 006 for the Spring 2020 installment of the CPE 104
 2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
 4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
 
-
-**Conversion to Take-Home TODOs:**
-1. Turn into a lesson-n-assignment:
-   1. Divide each section into study-apply-present parts.
-   2. Structure lesson and assignment in parallel, section by section.
-   3. Interleave the exposure and exploration parts. It should be a single progression.
-   4. Reference videos and materials _inline_.
-   5. Supplement with _short_ original videos.
-   6. Overview should state this format and identify prerequisites. (Link with previous.)
-   7. Link to [lesson 6](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit?usp=sharing).
-   8. Include a Learning How to Learn section at the very beginning and weave into [Introduction](#overview).
-   3. Separate lab-kit doc:
-      1. Include lab-kit contents, user guide, and safety of operation. Link this l&a to new document.
-      2. Include video and/or guide for using handheld multimeters.
-1. No workstation, so no buttons or logic output LEDs. Adapt to use the micro:bit button and LEDs.
-4. Add note that 74LS00 chips require 5V.
-5. Square wave gen in micro:bit:
-   1. In separate `forever` loop. A note on _threads and fibers_. Link to [Reactive](https://makecode.microbit.org/device/reactive).
-   2. Test the following functions (_Use in conjunction to test w/o oscilloscope._): 
-      1. [`analogSetPeriod`](https://makecode.microbit.org/reference/pins/analog-set-period),
-      2. [`onPulsed`](https://makecode.microbit.org/reference/pins/on-pulsed),
-      3. [`analogSetPitchPin`](https://makecode.microbit.org/reference/pins/analog-set-pitch-pin),
-      4. [`analogPitch`](https://makecode.microbit.org/reference/pins/analog-pitch)
-      5. [`pulseDuration`](https://makecode.microbit.org/reference/pins/pulse-duration)
-   3. Discover and show all the pin simulation functions of the MakeCode environment.
-8. Note that at most 4 lines can be voltage converted. _The /CLR signal is active-low. If 3.3V is enough to keep it in the high state, it can be connected directly._
-9. Explain both voltage converter devices.
-10. Build the final circuit, check the constraints with translation pins, and update the "front-page" picture.
-11. Remove lab oscilloscope parts and maybe explore the [microbit as an oscilloscope project](http://www.elektronik-labor.de/Microbit/Microbit9.html).
-
-
-### Take-home lab kit
+## Take-home lab kit
 
 **TODO**
 
-### Learning how to learn
+## Learning how to learn
 
 **TODO**
 
@@ -96,7 +65,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 **TODO**
 
-### 2. Logic level converter
+### Section 2: Logic level converter
 
 **TODO:** No function generator, so will use micro:bit. This section has to be before any micro:bit sections. Show both converters as they got confused.
 
@@ -116,7 +85,7 @@ The micro:bit works at 3.3V while the workstation works at 5V. This means that a
 
 **TODO**
 
-### 3. Clock signal from the micro:bit
+### Section 3: Clock signal from the micro:bit
 
 **TODO:** Introduce waves, functions, function generators, square waves, clocks, levels, and edges.
 
@@ -146,7 +115,7 @@ basic.forever(function () {
 
 **TODO**
 
-### 4. D-type flip-flop
+### Section 4: D-type flip-flop
 
 #### 4.1 Study
 
@@ -191,7 +160,7 @@ basic.forever(function () {
 
 **TODO**
 
-### 5. 3-bit modulus counter
+### Section 5: 3-bit modulus counter
 
 **TODO:** Counters are sequential machines whose states correspond to the natural numbers, starting at zero and cycling over at a number of the form 2n-1, and called mod-n counters.
 
@@ -227,11 +196,11 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 **TODO**
 
-### 6. Display counter output on micro:bit external LEDs
+### Section 6: Display counter output on micro:bit external LEDs
 
 **TODO**
 
-### 7. Flip-flop control signals
+### Section 7: Flip-flop control signals
 
 **TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
 
@@ -250,7 +219,7 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 **TODO**
 
-### 8. Display counter output on micro:bit LED matrix
+### Section 8: Display counter output on micro:bit LED matrix
 
 **TODO:** Binary decoding.
 
@@ -290,11 +259,11 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 **TODO**
 
-### 9. Logic gates
+### Section 9: Logic gates
 
 **TODO:** Introduce combinational circuits!
 
-### 10. Modulo-5 counter
+### Section 10: Modulo-5 counter
 
 **TODO:** Introduce combinational circuits!
 
