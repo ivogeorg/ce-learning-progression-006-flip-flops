@@ -1,16 +1,4 @@
 # CPE 1040 - Spring 2020
-
-## Assignment 6: Flip-flops
-
-Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-04  
-Code: b49e4fe11d5571df7bc8ee98a0d719db43a8cedc   
-
----
-
-_**NOTE:** This assignment [README](README.md) is _intentionally_ blank. It is part of the assignment to fill it. Refer to the [submission template](submission-template.md) for expectations and guidance. Read the [requirements](requirements.md) and [criteria](criteria.md) for the assignment proper._
-
-
 ```
   _           _       _   _       _       _                 _    
  | |         | |     | \ | |     | |     | |               | |   
@@ -21,3 +9,11 @@ _**NOTE:** This assignment [README](README.md) is _intentionally_ blank. It is p
                                                                                                                       
 ```
 Art acknowledgement: [taag](http://patorjk.com/software/taag/)
+---
+
+**NOTE:** 
+1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the Lab Notebook for the study & submission. _It is a great aid for your study and the main component of your submission._
+2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
+2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
+4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
+---
