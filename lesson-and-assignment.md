@@ -1,16 +1,23 @@
 # CPE 1040 - Spring 2020
 
-## Lesson & Assignment 006: Flip-flops
-
 Author: Ivo Georgiev, PhD  
 Last updated: 2020-03-17   
 Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87      
 
 This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
+![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
+
+**NOTE:** 
+1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the **Lab Notebook** for the study & submission. _It is a great aid for your study and the main component of your submission._
+2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
+2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
+4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
+
+
 **Conversion to Take-Home TODOs:**
 1. Turn into a lesson-n-assignment:
-   1. Divide into read-try-do sections.
+   1. Divide each section into study-apply-present parts.
    2. Structure lesson and assignment in parallel, section by section.
    3. Interleave the exposure and exploration parts. It should be a single progression.
    4. Reference videos and materials _inline_.
@@ -32,32 +39,35 @@ This is lesson and assignment 006 for the Spring 2020 installment of the CPE 104
       4. [`analogPitch`](https://makecode.microbit.org/reference/pins/analog-pitch)
       5. [`pulseDuration`](https://makecode.microbit.org/reference/pins/pulse-duration)
    3. Discover and show all the pin simulation functions of the MakeCode environment.
-6. ~Convert previously bonus parts to required.~
-7. ~Remove challenge to build a flip-flop.~
 8. Note that at most 4 lines can be voltage converted. _The /CLR signal is active-low. If 3.3V is enough to keep it in the high state, it can be connected directly._
 9. Explain both voltage converter devices.
 10. Build the final circuit, check the constraints with translation pins, and update the "front-page" picture.
 11. Remove lab oscilloscope parts and maybe explore the [microbit as an oscilloscope project](http://www.elektronik-labor.de/Microbit/Microbit9.html).
 
-### Overview
+
+### Take-home lab kit
+
+**TODO**
+
+### Learning how to learn
+
+**TODO**
+
+## Lesson & Assignment 006: Flip-flops
+
+**TODO:** Overview of both lesson and assignment.
 
 This assignment introduces _flip-flops_, how they are built, and what circuits can be built from them. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image below. 
 
-![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
-
-**NOTE:** 
-1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the Lab Notebook for the study & submission. _It is a great aid for your study and the main component of your submission._
-2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
-2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
-4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
-
-#### Preparation
+### Section 1: Capacitors
 
 Before plunging into the assignment, let us prepare ourselves by briefly 
 
-#### Requirements
+#### 1.1 Study
 
-##### 1. Capacitors
+**TODO**
+
+#### 1.2 Apply
 
 Capacitors are important cicruit elements which hold charge. They are represented as two plates with terminals as shown below:
 ```
@@ -82,74 +92,19 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 5. Watch the LED light up then quickly fade to dark as the capacitor discharges through the circuit.
 
-##### 2. D-type flip-flop
+#### 1.3 Present
 
-###### Notes on reading the datasheet
+**TODO**
 
-1. Our lab has 74LS74 chips, each containing two D-type positive-edge triggered flip-flops.
-2. Only the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf) is necessary for this project.
-3. Our chip has the _form factor_ and _pinout_ at the top right.
-4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_.
-5. The operation is layed out in two ways:
-   1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the "clock" input._
-   2. The _function table_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge. See the diagram below for what a positive edge is._
-   ```
-   5V       |------|      |------
-            |      |      |          this is a "square" wave, which is typical of clock (CLK) signals in electronics
-   0V ------|      |------|
-   
-         ^  this is the positive edge, where the voltage rises from logic LOW (0V) to logic HIGH (5V)
-   ```
+### 2. Logic level converter
 
-###### Requirements
+**TODO:** No function generator, so will use micro:bit. This section has to be before any micro:bit sections. Show both converters as they got confused.
 
-1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
-2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
-3. Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:
-   1. Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._
-   2. Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._
-   3. Connect the **OUT** column from the generator to your **1CLK** input.
-4. Connect a TTL logic switch to the **1D** input.
-5. Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._
-6. Connect **1/CLR** and **1/PRE** to logic high (5V).
-7. With a very low clock frequency, toggle the input switch and watch the output LEDs. At low frequency, you will see a lag.
-8. Increase the frequency to see that the lag stops being dinstinguishable.
-9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
-10. Take a picture of your setup and include it in your README.
-11. With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.
-12. Take a picture of the oscilloscope window and include in your README.
-
-##### 3. 3-bit modulus counter
-
-![alt text](images/3-bit-mod-ctr.jpg "3-bit modulus counter")
-_Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represented in a diagram with its non-negated name and a circle ° at the terminal, as it is done in this diagram. The circle comes from the shortened representation of an **inverter**._
-
-1. Reason and explain how this circuit works:
-   1. On a sheet of paper with a checkerboard pattern, pick 4 lines at 4 rows from each other. Label at the left, from top to bottom, **CLK**, **1Q**, **2Q**, **3Q**.
-   2. The lines are 0V and one row up from each line is 5V. Label them.
-   3. Now trace the **CLK** square wave for 8 periods, up-down-up-down-...
-   4. Study the first (leftmost, closest to the clock) flip-flop and calculate what the **1Q** output (aka **b<sub>0</sub>**) will trace, if driven by the clock you just traced. _Hint: Remember that the Q output changes to the value of D **only** on a positive edge of the clock signal._
-   5. Do the same for the second, and then the third flip-flop. _Note: Notice that the clock input of a flip-flop other than the first one comes from the output Q of the previous one._
-   6. Take a picture of your resulting diagram and embed it in a description of the circuit operation in your README.
-
-![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
-
-2. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget to place the chips with notches pointing up, and to power and ground each chip._
-3. Use the same clock signal from the previous [section](#requirements-1).
-4. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red light). We'll call this the _clear switch_.
-5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These represent a **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
-6. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
-7. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
-
-   **TODO:** Expand the following to establish awareness of control signals.
-   
-8. Connect the clock and the 3 bit outputs to the 4 channels of the oscilloscope and record the counting in a video or image. Link to or embed in your README. _What signlal should you toggle on to see what your timing diagram shows?_
-
-##### 4. Logic level converter
-
-**TODO:** Show both converters as they got confused.
+#### 2.1 Study
 
 The micro:bit works at 3.3V while the workstation works at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/), but we only need to say here that the two circuits should not be connected directly to each other (as we did in the last assignment :D). Instead, we use a [logic level converter circuit](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide) to bridge the two circuits. _Notice the diode pointing from low voltage to high voltage!_
+
+#### 2.2 Apply
 
 1. Hook up one of the converters and power it properly as shown in the hookup guide. You need to power the two sides with the two different voltages and two _different grounds_! _Warning: Please, do not confuse the **low voltage 3.3V** with the **high voltage 5V** or you will damage the converter._
 2. Hook up a workstation TTL switch on the _high side_ and, while togling it, measure the voltage on the _low side_ with the multimeter.
@@ -157,7 +112,19 @@ The micro:bit works at 3.3V while the workstation works at 5V. This means that a
 4. Hook up a ditigal output pin from the micro:bit to the _low side_ and measure the voltage on the _high side_ with the multimeter.
 5. Now hook up the corresponding _high side_ pin to one TTL output LED as in the [previous section](#3-3-bit-modulus-counter). Record a very short video to show your circuit operating and link to it in your README.
 
-##### 5. Drive counter with micro:bit
+#### 2.3 Present
+
+**TODO**
+
+### 3. Clock signal from the micro:bit
+
+**TODO:** Introduce waves, functions, function generators, square waves, clocks, levels, and edges.
+
+#### 3.1 Study
+
+**TODO**
+
+#### 3.2 Apply
 
 1. Write a program to drive the counter master clock signal **1CLK** with a programmable frequency. Here is a simple program to get you started:
 ```TypeScript
@@ -175,7 +142,123 @@ basic.forever(function () {
 6. Commit to your repository as file `clk-variable.js`.
 7. Record a video of the micro:bit driving the counter at different frequencies and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
 
-##### 6. Display counter output on micro:bit LEDs
+#### 3.3 Present
+
+**TODO**
+
+### 4. D-type flip-flop
+
+#### 4.1 Study
+
+**TODO**
+
+##### Notes on reading the datasheet
+
+1. Our lab has 74LS74 chips, each containing two D-type positive-edge triggered flip-flops.
+2. Only the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf) is necessary for this project.
+3. Our chip has the _form factor_ and _pinout_ at the top right.
+4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_.
+5. The operation is layed out in two ways:
+   1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the "clock" input._
+   2. The _function table_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge. See the diagram below for what a positive edge is._
+   ```
+   5V       |------|      |------
+            |      |      |          this is a "square" wave, which is typical of clock (CLK) signals in electronics
+   0V ------|      |------|
+   
+         ^  this is the positive edge, where the voltage rises from logic LOW (0V) to logic HIGH (5V)
+   ```
+
+#### 4.2 Apply
+
+1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
+2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
+3. Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:
+   1. Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._
+   2. Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._
+   3. Connect the **OUT** column from the generator to your **1CLK** input.
+4. Connect a TTL logic switch to the **1D** input.
+5. Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._
+6. Connect **1/CLR** and **1/PRE** to logic high (5V).
+7. With a very low clock frequency, toggle the input switch and watch the output LEDs. At low frequency, you will see a lag.
+8. Increase the frequency to see that the lag stops being dinstinguishable.
+9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
+10. Take a picture of your setup and include it in your README.
+11. With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.
+12. Take a picture of the oscilloscope window and include in your README.
+
+#### 4.3 Present
+
+**TODO**
+
+### 5. 3-bit modulus counter
+
+**TODO:** Counters are sequential machines whose states correspond to the natural numbers, starting at zero and cycling over at a number of the form 2n-1, and called mod-n counters.
+
+#### 5.1 Study
+
+![alt text](images/3-bit-mod-ctr.jpg "3-bit modulus counter")
+_Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represented in a diagram with its non-negated name and a circle ° at the terminal, as it is done in this diagram. The circle comes from the shortened representation of an **inverter**._
+
+1. Reason and explain how this circuit works:
+   1. On a sheet of paper with a checkerboard pattern, pick 4 lines at 4 rows from each other. Label at the left, from top to bottom, **CLK**, **1Q**, **2Q**, **3Q**.
+   2. The lines are 0V and one row up from each line is 5V. Label them.
+   3. Now trace the **CLK** square wave for 8 periods, up-down-up-down-...
+   4. Study the first (leftmost, closest to the clock) flip-flop and calculate what the **1Q** output (aka **b<sub>0</sub>**) will trace, if driven by the clock you just traced. _Hint: Remember that the Q output changes to the value of D **only** on a positive edge of the clock signal._
+   5. Do the same for the second, and then the third flip-flop. _Note: Notice that the clock input of a flip-flop other than the first one comes from the output Q of the previous one._
+   6. Take a picture of your resulting diagram and embed it in a description of the circuit operation in your README.
+
+![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
+
+#### 5.2 Apply
+
+2. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget to place the chips with notches pointing up, and to power and ground each chip._
+3. Use the same clock signal from the previous [section](#requirements-1).
+4. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red light). We'll call this the _clear switch_.
+5. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These represent a **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
+6. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
+7. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
+
+   **TODO:** Expand the following to establish awareness of control signals.
+   
+8. Connect the clock and the 3 bit outputs to the 4 channels of the oscilloscope and record the counting in a video or image. Link to or embed in your README. _What signlal should you toggle on to see what your timing diagram shows?_
+
+#### 5.3 Present
+
+**TODO**
+
+### 6. Display counter output on micro:bit external LEDs
+
+**TODO**
+
+### 7. Flip-flop control signals
+
+**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
+
+#### 7.1 Study
+
+**TODO**
+
+#### 7.2 Apply
+
+1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
+2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
+3. Commit to your repository as file `clk-led-clr.js'.
+4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
+
+#### 7.3 Present
+
+**TODO**
+
+### 8. Display counter output on micro:bit LED matrix
+
+**TODO:** Binary decoding.
+
+#### 8.1 Study
+
+**TODO**
+
+#### 8.2 Apply
 
 1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
    1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to 3 chosen micro:bit _digital read_ pins. _Note: First, disconnect them from the TTL output LEDs._
@@ -203,18 +286,23 @@ basic.forever(function () {
 5. Commit to your repository as file `clk-led-no-skew.js`.
 6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
-##### 7. Flip-flop control signals
+#### 8.3 Present
 
-**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
+**TODO**
 
-1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
-2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
-3. Commit to your repository as file `clk-led-clr.js'.
-4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
-
-##### 8. Modulo-5 counter
+### 9. Logic gates
 
 **TODO:** Introduce combinational circuits!
+
+### 10. Modulo-5 counter
+
+**TODO:** Introduce combinational circuits!
+
+#### 10.1 Study
+
+**TODO**
+
+#### 10.2 Apply
 
 1. Build a [_combinational circuit_](https://www.electronics-tutorials.ws/combination/comb_1.html) out of [_logic gate_](https://en.wikipedia.org/wiki/Logic_gate) [ICs](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits) (AND, OR, NOT, etc.) to drive one of the control signals to change your circuit from a mod-8 counter to a **mod-5 counter**:
    1. Design the signal necessary to force the counter to cycle back to `000` before it reaches `101`.
@@ -224,6 +312,10 @@ basic.forever(function () {
 3. Now disconnect the combinatorial circuit and modify your program to do the same thing with the clear control signal that comes from the micro:bit.
 4. Commit to your repository as file `mod-5-clr.js`.
 5. Record a video showing mod-5 counter without external logic gates, and link to README with a brief explanation of your code.
+
+#### 10.3
+
+**TODO**
 
 ## Resources
 
