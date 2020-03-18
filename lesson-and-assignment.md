@@ -85,8 +85,6 @@ In the [Lab Notebook](README.md), include:
 
 ### Section 2: Logic level converter
 
-**TODO:** No function generator, so will use micro:bit. This section has to be before any micro:bit sections. Show both converters as they got confused.
-
 #### 2.1 Study
 
 The micro:bit works at 3.3V while we have to operate the circuit on the long breadboard at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/). Read the [short section in Lesson 006: Memory on binary numbers](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.2bm72yu21rie).
@@ -95,16 +93,21 @@ Most importantly for us, the two circuits should **not** be connected directly t
 
 #### 2.2 Apply
 
-1. Hook up one of the converters and power it properly as shown in the hookup guide. You need to power the two sides with the two different voltages and two _different grounds_! _Warning: Please, do not confuse the **low voltage 3.3V** with the **high voltage 5V** or you will damage the converter._
-2. **TODO** Hook up a workstation TTL switch on the _high side_ and, while togling it, measure the voltage on the _low side_ with the multimeter.
-3. **TODO** Now connect the _low side_ pin to a digital input pin of the micro:bit. Drive an external LED with another pin, as in [Assigment 5](https://github.com/ivogeorg/asst-cpe-transistors/blob/master/requirements.md#requirements-1). Record a very short video to show your circuit operating and link to it in your README.
-4. Hook up a ditigal output pin from the micro:bit to the _low side_ and measure the voltage on the _high side_ with the multimeter.
-5. Now hook up the corresponding _high side_ pin to one TTL output LED as in the [previous section](#3-3-bit-modulus-counter). 
+1. Hook up one of the converters and power it properly as shown in the hookup guide. It is best to use the lower part of the short breadboard, below the micro:bit breakout. You need to power the two sides with the two different voltages and two _different grounds_! _Warning: Please, do not confuse the **low voltage 3.3V** with the **high voltage 5V** or you will damage the converter._
+2. Hook up a powered wire from the long breadboard to one of the lines on the _high-voltage (HV) side_ and the voltage on the opposite terminal on the _low-voltage (LV) side_ with the multimeter. Use the long breadboard power supply ON-OFF switch to power and depower the line. _Please, do this very gently!!!_
+3. Now connect the _LV_ pin to a digital input pin of the micro:bit. Read the pin and light the LED matrix position at (0, 0) depending on the reading. Power and depower the line on the _HV_ pin. 
+4. Hook up a ditigal output pin from the micro:bit to the _LV_, drive it with a short program, and measure the voltage on the _HV_ with the multimeter.
+5. Now build a simple resistor-and-LED circuit on the long board, and drive it with the _HV_ pin. 
 
 #### 2.3 Present
 
-**TODO**
-Record a very short video to show your circuit operating and link to it in your README.
+In the [Lab Notebook](README.md), include:
+1. Short video of the operation of the circuit from 2.2.3.
+2. Short video of the operation of the circuit from 2.2.5.
+
+In the [repository](./), include:
+1. File `microbit-program-2-2-3.js` with the code you used in task 2.2.3.
+2. File `microbit-program-2-2-5.js` with the code you used in task 2.2.5.
 
 ### Section 3: Clock signal from the micro:bit
 
