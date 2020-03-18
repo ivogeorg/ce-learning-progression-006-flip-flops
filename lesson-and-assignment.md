@@ -54,8 +54,21 @@ Capacitors are important cicruit elements which hold charge. They hold charge an
 ```
     |
 ---------
----------   A capacitor has two plates across which there is voltage
+---------   A capacitor has two plates across which there is voltage.
     |
+
+
+    |   +
+---------
+---------   The voltage is caused by the accumulation and separation of opposite charges on the plates.
+    |   -
+    
+
+    |   [+]
+---------
+---------   Some capacitors are polarized, with signs indicated. [+] should be connected to higher voltage.
+    |   [-]
+    
 ```
 When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage. If the voltage is removed and there is a circuit connection between the two terminals, current flows from the terminal with the higher voltage toward the terminal with the lower voltage. Eventually, the current dissipates the accumulated charge and the voltage across the plates drops to zero.
 
