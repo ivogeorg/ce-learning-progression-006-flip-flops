@@ -152,6 +152,7 @@ Different components are designed to change state at different _events_ of the s
             |  high
             pos edge
    ```
+The square wave is only one of a number of wave _functions_ that are commonly used in electric and electronic circuits. Two other common functions are the _triangle_ and _sine_ waves. A device that can generate various functions is called a _function generator_. This is one lab device that we have not been able to replace affordably for the take-home lab kit. Intead, we will use the micro:bit to generate our square wave.
 
 #### 3.2 Apply
 
@@ -182,21 +183,21 @@ In the [repository](./), include:
 
 #### 4.1 Study
 
-**TODO:** Introduce flip-flop. functions, function generators.
+Read the [section on the flip-flop in Lesson 006: Memory](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.txu21jmors55) and the linked materials.
 
 ##### Notes on reading the datasheet
 
 1. Our lab has 74LS74 chips, each containing two D-type positive-edge triggered flip-flops.
 2. Only the first page of the [datasheet](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf) is necessary for this project.
 3. Our chip has the _form factor_ and _pinout_ at the top right.
-4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_.
-5. The operation is layed out in two ways:
-   1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the "clock" input._
-   2. The _function table_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge._
+4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_, with signal flow and operation _from left to right_. This is standard in electronics diagrams.
+5. The operation is specified in two ways:
+   1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the clock input CLK._
+   2. The _FUNCTION TABLE_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge._
 
 #### 4.2 Apply
 
-**TODO:**  Single flipflop, with output driving two external LED circuits.
+**TODO:**  Single flipflop, with output driving two external LED circuits. _Can it?_ Also, the clock should flash at matrix position (0, 0).
 
 1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
 2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
@@ -213,10 +214,11 @@ In the [repository](./), include:
 #### 4.3 Present
 
 **TODO**
-9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
-10. Take a picture of your setup and include it in your README.
-11. ~With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.~
-12. ~Take a picture of the oscilloscope window and include in your README.~
+
+1. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
+2. Take a picture of your setup and include it in your README.
+3. ~With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.~
+4. ~Take a picture of the oscilloscope window and include in your README.~
 
 ### Section 5: 3-bit modulus counter
 
