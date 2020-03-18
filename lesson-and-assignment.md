@@ -89,7 +89,7 @@ In the [Lab Notebook](README.md), include:
 
 The micro:bit works at 3.3V while we have to operate the circuit on the long breadboard at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/). Read the [short section in Lesson 006: Memory on binary numbers](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.2bm72yu21rie).
 
-Most importantly for us, the two circuits should **not** be connected directly to each other (as we did in the last assignment :D). Instead, we use a voltage (aka logic) level converter circuit to bridge the micro:bit and long breadboard circuits. We will be using [one of two voltage level boards](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit#heading=h.fx9d22emrhnr). On the [board diagram of Bi-Directional Logic Level Converter](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide#board-overview), notice the [zener diode](https://www.digikey.com/en/maker/blogs/zener-diode-basic-operation-and-applications) across the FET, pointing from low voltage to high voltage!_
+Most importantly for us, the two circuits should **not** be connected directly to each other (as we did in the last assignment :D). Instead, we use a voltage (aka logic) level converter circuit to bridge the micro:bit and long breadboard circuits. We will be using [one of two voltage level boards](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit#heading=h.fx9d22emrhnr). On the [board diagram of Bi-Directional Logic Level Converter](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide#board-overview), notice the [zener diode](https://www.digikey.com/en/maker/blogs/zener-diode-basic-operation-and-applications) across the FET, pointing from low voltage to high voltage!
 
 #### 2.2 Apply
 
@@ -102,8 +102,9 @@ Most importantly for us, the two circuits should **not** be connected directly t
 #### 2.3 Present
 
 In the [Lab Notebook](README.md), include:
-1. Short video of the operation of the circuit from 2.2.3.
-2. Short video of the operation of the circuit from 2.2.5.
+1. A short narrative about the experiment.
+2. Short video of the operation of the circuit from 2.2.3.
+3. Short video of the operation of the circuit from 2.2.5.
 
 In the [repository](./), include:
 1. File `microbit-program-2-2-3.js` with the code you used in task 2.2.3.
@@ -111,15 +112,37 @@ In the [repository](./), include:
 
 ### Section 3: Clock signal from the micro:bit
 
-**TODO:** Introduce waves, functions, function generators, square waves, clocks, levels, and edges.
-
 #### 3.1 Study
 
-**TODO**
+The flip-flop, which is the main theme of this lesson & assignment, is one of the simplest example of a large family of electronic circuits, called _sequential circuits_. Read the [short section in Lesson 006: Memory on sequential circuits](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.c4o6su7uj2bg). The name "sequential" comes from the property of theses circuits to occupy different _states_ and their ability to switch from one state to another, in a predetermined sequence. Read the [short section in Lesson 006: Memory on state](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.bal0y2eurxvq). 
+
+Computers are large and complex sequential circuits with many components, the function of which has to be tightly _synchronized_. In simplest terms, this means that computer components have to change states at the same time, in strictly determined order. For this reason, each component changes state _only_ upon receiving a synchronizing signal, called a _clock_. Clock signals are almost exclusively in the form of _square waves_. The diagram below shows what a square wave looks like and why it's called so:
+```
+   5V       |------|      |------
+            |      |      |          This is a "square" wave, which is typical of clock (CLK) signals in electronics.
+   0V ------|      |------|          It changes from logic low to logic high and repeats forever.
+                                     It is called "square" because of the right angles the horizontal and vertical edges form.
+   ```
+Different components are designed to change state at different _events_ of the square wave. The 4 main events are:
+  1. Logic high.
+  2. Logic low.
+  3. Positive edge (that is, switching from low to high).
+  4. Negative edge (that is, switching from high to low).
+```
+   5V       |------|      |------
+            |  ^   |      |          Square wave with the different state-change events.
+   0V ------|  |   |------|          
+            ^  |   ^   ^
+            |  |   |   |
+            |  |   |   low
+            |  |   neg edge
+            |  high
+            pos edge
+   ```
 
 #### 3.2 Apply
 
-1. Write a program to drive the counter master clock signal **1CLK** with a programmable frequency. Here is a simple program to get you started:
+1. Write a program to produce a clock signal on the output of a digital write pin. Here is a simple program to get you started:
 ```TypeScript
 basic.forever(function () {
     pins.digitalWritePin(DigitalPin.P12, 1)  // positive edge
@@ -128,22 +151,25 @@ basic.forever(function () {
     basic.pause(200)
 })
 ```
-2. Hook up pin 12 _through the logic level converter_ (from **3.3V** to **5V**) to the **1CLK** pin of your counter on the workstation breadboard. 
-3. Commit to your repository as file `clk.js`.
-4. Record a video of the micro:bit driving the counter and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
-5. Modify the program to double the frequency (halve the pause time) on the press of button A and to halve the frequency (double the pause time) on the press of button B. _Hint: Look at your previous programs. You should have all the code._
-6. Commit to your repository as file `clk-variable.js`.
-7. Record a video of the micro:bit driving the counter at different frequencies and the counter counting correctly on the TTL output LEDs. Link in your README. _Remember the clear signal that starts the counter correctly at `000`._
+2. Hook up pin 12 _through the logic level converter_ (from **3.3V** to **5V**) and to the simple circuit from task 2.2.5.
+3. Modify the program to double the frequency (halve the pause time) on the press of button A and to halve the frequency (double the pause time) on the press of button B. _Hint: Look at your previous programs. You should have all the code._
 
 #### 3.3 Present
 
-**TODO**
+In the [Lab Notebook](README.md), include:
+1. A short narrative about the experiment.
+2. Short video of the operation of the circuit from 3.2.2.
+3. Short video of the operation of the circuit from 3.2.3.
+
+In the [repository](./), include:
+1. File `microbit-program-3-2-2.js` with the code you used in task 3.2.2.
+2. File `microbit-program-3-2-3.js` with the code you used in task 3.2.3.
 
 ### Section 4: D-type flip-flop
 
 #### 4.1 Study
 
-**TODO**
+**TODO:** Introduce functions, function generators.
 
 ##### Notes on reading the datasheet
 
@@ -220,7 +246,7 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 **TODO**
 
-### Section 6: Display counter output on micro:bit external LEDs
+### Section 6: Display raw counter output on micro:bit external LEDs
 
 **TODO**
 
@@ -243,7 +269,7 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 **TODO**
 
-### Section 8: Display counter output on micro:bit LED matrix
+### Section 8: Display decoded counter output on micro:bit LED matrix
 
 **TODO:** Binary decoding.
 
