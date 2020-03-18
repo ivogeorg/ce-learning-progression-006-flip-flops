@@ -42,9 +42,12 @@ The human mind is a very fine machine with amazing capabilities. And like any co
 
 ## Lesson & Assignment 006: Flip-flops
 
-**TODO:** Overview of both lesson and assignment.
-
-This assignment introduces _flip-flops_, how they are built, and what circuits can be built from them. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image below. 
+This assignment & lesson introduces _capacitors_, _logic level conversion_, _flip-flops_, and _counters_:
+  1. Capacitors are static circuit elements that can hold charge.
+  2. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. 
+  3. When two circuits work at differnet voltages, say 3.3V and 5V, any signals between them have to be safely converted.
+  4. Counters are sequential circuits which go continously cycle through several states representing binary numbers from 0 to some number 2n-1, in order.
+The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image above. 
 
 ### Section 1: Capacitors
 
@@ -76,7 +79,7 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 #### 1.2 Apply
 
-1. This part lets you see how a capacitor operates. Build the circuit below on the long breadboard:
+1. This part lets you see how a capacitor operates. Build the circuit below on the long breadboard. _Note: If you don't have a 330 Ohm resistor, it's okay to use a 220 Ohm one. The 2200 uF capacitor is polarized, so [-] should be connected toward ground and [+] toward power._
 
 ![alt text](images/capacitor-charging.jpg "Capacitor charging circuit")
 
