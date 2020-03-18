@@ -182,7 +182,7 @@ In the [repository](./), include:
 
 #### 4.1 Study
 
-**TODO:** Introduce functions, function generators.
+**TODO:** Introduce flip-flop. functions, function generators.
 
 ##### Notes on reading the datasheet
 
@@ -192,36 +192,31 @@ In the [repository](./), include:
 4. The _logic symbol_ at the bottom left shows _inputs on the left_ and _outputs on the right_.
 5. The operation is layed out in two ways:
    1. The _description_ does it in words. _In summary, the device transfers its input value at D onto its output Q (and inverted output /Q) only upon a positive edge of the "clock" input._
-   2. The _function table_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge. See the diagram below for what a positive edge is._
-   ```
-   5V       |------|      |------
-            |      |      |          this is a "square" wave, which is typical of clock (CLK) signals in electronics
-   0V ------|      |------|
-   
-         ^  this is the positive edge, where the voltage rises from logic LOW (0V) to logic HIGH (5V)
-   ```
+   2. The _function table_ does it symbolically, but is equivalent to the description. _Note: An X represents a "don't care" input, that is, it doesn't matter what its value is; and an upward arrow means a positive edge._
 
 #### 4.2 Apply
 
+**TODO:**  Single flipflop, with output driving two external LED circuits.
+
 1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
 2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
-3. Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:
-   1. Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._
-   2. Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._
-   3. Connect the **OUT** column from the generator to your **1CLK** input.
-4. Connect a TTL logic switch to the **1D** input.
-5. Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._
+3. ~Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:~
+   1. ~Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._~
+   2. ~Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._~
+   3. ~Connect the **OUT** column from the generator to your **1CLK** input.~
+4. ~Connect a TTL logic switch to the **1D** input.~
+5. ~Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._~
 6. Connect **1/CLR** and **1/PRE** to logic high (5V).
 7. With a very low clock frequency, toggle the input switch and watch the output LEDs. At low frequency, you will see a lag.
 8. Increase the frequency to see that the lag stops being dinstinguishable.
-9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
-10. Take a picture of your setup and include it in your README.
-11. With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.
-12. Take a picture of the oscilloscope window and include in your README.
 
 #### 4.3 Present
 
 **TODO**
+9. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
+10. Take a picture of your setup and include it in your README.
+11. ~With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.~
+12. ~Take a picture of the oscilloscope window and include in your README.~
 
 ### Section 5: 3-bit modulus counter
 
@@ -288,7 +283,7 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 #### 8.1 Study
 
-**TODO**
+**TODO:** Multiple `forever` loops. Events and event handlers. Asynchronous execution and reactive fiber scheduling. `onPulse` event and conditions for counter advancement. Decoding of 3-bit binary into decimal to display on LED matrix. Handling clock skew.
 
 #### 8.2 Apply
 
