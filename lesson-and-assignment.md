@@ -43,10 +43,11 @@ The human mind is a very fine machine with amazing capabilities. And like any co
 ## Lesson & Assignment 006: Flip-flops
 
 This assignment & lesson introduces _capacitors_, _logic level conversion_, _flip-flops_, and _counters_:
-  1. Capacitors are static circuit elements that can hold charge.
-  2. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory. 
-  3. When two circuits work at differnet voltages, say 3.3V and 5V, any signals between them have to be safely converted.
-  4. Counters are sequential circuits which go continously cycle through several states representing binary numbers from 0 to some number 2n-1, in order.
+  1. Capacitors are static circuit elements that can hold charge.   
+  2. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory.    
+  3. When two circuits work at differnet voltages, say 3.3V and 5V, any signals between them have to be safely converted.   
+  4. Counters are sequential circuits which go continously cycle through several states representing binary numbers from 0 to some number 2n-1, in order.   
+
 The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image above. 
 
 ### Section 1: Capacitors
