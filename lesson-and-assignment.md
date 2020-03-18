@@ -1,7 +1,7 @@
 # CPE 1040 - Spring 2020
 
 Author: Ivo Georgiev, PhD  
-Last updated: 2020-03-17   
+Last updated: 2020-03-18   
 Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87      
 
 ![alt text](images/CPE-Asst6-Modulo-Ctr.jpg "Final circuit for CPE 1040 Asst 6")
@@ -16,11 +16,29 @@ This is lesson and assignment 006 for the Spring 2020 installment of the CPE 104
 
 ## Take-home lab kit
 
-**TODO**
+The take-home lab kit is meant to provide continuity of our lab projects across the transition to online instruction. Please, read the [BOM, guide, and care document](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit?usp=sharing) and use it as a reference throughout the lesson and assignment.
+
+##### Practice
+
+We advise you to build a small circuit just to break it in. Suggestions:
+1. Build our basic resistor and standalone LED on the long breadboard, and power it with 3.3V and 5V, using the power supply switch. _Is there a marked difference in brightness?_
+2. Add a NPN transistor switch to the circuit, using the breadboard power supply ON-OFF switch as the base switch.
 
 ## Learning how to learn
 
-**TODO**
+The human mind is a very fine machine with amazing capabilities. And like any complex mechanism, it takes study to learn to use it effectively. This standalone section will contain practical information and advice for learning how to learn.
+
+##### Learning How to Learn 01
+
+1. The pain of learning.
+   Knowledge is contain in the brain in complex neural structures, often distributed across the whole brain. Learning new knowledge is the process of _attaching_ or _fitting_ new concepts to your already existing _knowledge network_, and often requires significant rearranging to accomplish. This process is associated with _mild forms of pain and discomfort_. 
+   
+   TO DO: Learn to expect the natural discomfort that comes with learning and don't be afraid of it. Give it time. Approach the new concept from several different directions. Do not ever think that you are not good at this. You are already doing this just as everyone else. As your brain adjusts to the new knowledge, the pain goes away.
+   
+2. Focus & distraction.
+   It might sound counterintuitive at first that both _focus_ and _distraction_ are important for learning, not just focus. The brain does different functions during focus and distraction, and all these functions contribute important steps to the learning process. Focus provides the ability to select a handful of related concepts, lock them into short-term memory, and apply directed effort to attach a new concept or set of concepts to the already existing knowledge. Incidentally, this is what is called _thinking_. Distraction helps the brain relax, recharge, and clean up.
+   
+   TO DO: The so called [_pomodoro technique_](https://francescocirillo.com/pages/pomodoro-technique) is a simple, yet effective way to gain operational control over periods of focus and distraction. Use a kitchen timer or the [online tomato timer](https://tomato-timer.com/), set it to 25 minutes and sit down to work a problem, keeping all distractions away (phone, other family members, bathroom, etc). Do your best to keep only the relevant concepts in mind and work the problem at hand. When the timer goes off, take a 5 minute distraction break. Practice. Like everything else, it takes some time to tell the difference and notice the effects. _Hint: 25 minutes is the average time the [hippocampus](https://en.wikipedia.org/wiki/Hippocampus) can remain fully active before it needs to rest. Some brains may require less, say 15 minutes, or more, say 45 minutes. The online timer has adjustable settings, so you can experiment what works best for you._ 
 
 ## Lesson & Assignment 006: Flip-flops
 
@@ -256,33 +274,6 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
 #### 8.3 Present
-
-**TODO**
-
-### Section 9: Logic gates
-
-**TODO:** Introduce combinational circuits!
-
-### Section 10: Modulo-5 counter
-
-**TODO:** Introduce combinational circuits!
-
-#### 10.1 Study
-
-**TODO**
-
-#### 10.2 Apply
-
-1. Build a [_combinational circuit_](https://www.electronics-tutorials.ws/combination/comb_1.html) out of [_logic gate_](https://en.wikipedia.org/wiki/Logic_gate) [ICs](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits) (AND, OR, NOT, etc.) to drive one of the control signals to change your circuit from a mod-8 counter to a **mod-5 counter**:
-   1. Design the signal necessary to force the counter to cycle back to `000` before it reaches `101`.
-   2. Ask staff for the logic gates you need. _We have a variety of [74LS00 chips](https://en.wikipedia.org/wiki/List_of_7400-series_integrated_circuits)._
-   3. Build the circuit. _Note: Don't forget to power and ground the ICs._
-2. Record a video showing mod-5 counting and link in README.
-3. Now disconnect the combinatorial circuit and modify your program to do the same thing with the clear control signal that comes from the micro:bit.
-4. Commit to your repository as file `mod-5-clr.js`.
-5. Record a video showing mod-5 counter without external logic gates, and link to README with a brief explanation of your code.
-
-#### 10.3
 
 **TODO**
 
