@@ -319,7 +319,7 @@ _Note: An **active low** signal like **1/Q** and **1/CLR** signal can be represe
 
 1. D-type flip-flop [74LS74](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf)
 
-#### Capacitors
+### Capacitors
 
 1. A short lesson and video on [how a capacitor works](https://www.build-electronic-circuits.com/how-does-a-capacitor-work/)
 
