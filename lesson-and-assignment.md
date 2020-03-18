@@ -48,15 +48,9 @@ This assignment introduces _flip-flops_, how they are built, and what circuits c
 
 ### Section 1: Capacitors
 
-Before plunging into the assignment, let us prepare ourselves by briefly 
-
 #### 1.1 Study
 
-**TODO**
-
-#### 1.2 Apply
-
-Capacitors are important cicruit elements which hold charge. They are represented as two plates with terminals as shown below:
+Capacitors are important cicruit elements which hold charge. They hold charge and their non-linear charging and discharging provide important functionality for circuits. They are represented as two plates with terminals as shown below:
 ```
     |
 ---------
@@ -65,15 +59,18 @@ Capacitors are important cicruit elements which hold charge. They are represente
 ```
 When voltage is applied to the two terminals, charge accumulates until the voltage between the plates (and terminals) of the capacitor equals the applied voltage. If the voltage is removed and there is a circuit connection between the two terminals, current flows from the terminal with the higher voltage toward the terminal with the lower voltage. Eventually, the current dissipates the accumulated charge and the voltage across the plates drops to zero.
 
-Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=IykOrxVcdyg), so the purpose of this section is to give you intuition about their function it its operation.
+Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=IykOrxVcdyg). Read [this brief section in Lesson 006: Memory on capacitors](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.tfrh3hgmq4ay) and the materials referenced in it.
 
-1. This part lets you see how a capacitor operates. Build the circuit below:
+#### 1.2 Apply
+
+1. This part lets you see how a capacitor operates. Build the circuit below on the long breadboard:
 
 ![alt text](images/capacitor-charging.jpg "Capacitor charging circuit")
 
-2. Make sure the capacitor starts out _discharged_. _Hint: Connect the two terminals with a resistor._
-3. Attach the multimeter, in voltage mode, at the point V<sub>C</sub> or, in current mode, anywhere in the circuit. Apply the circuit voltage source and watch the reading of the multimeter. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity, that is, it _charges_, the current will diminish to zero amperes and the voltage at V<sub>C</sub> will climb back to 5V. _Why?_
-4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them through a circuit, and plug it into the second circuit below:
+2. The 2200uF capacitor is a large blue cylinder. It is _polarized_, so make sure you connect it properly.
+3. Make sure the capacitor starts out _discharged_. _Hint: Connect the two terminals to a resistor._
+4. Attach the multimeter, in voltage mode, at the point V<sub>C</sub> or, in current mode, anywhere in the circuit. Apply the circuit voltage source and watch the reading of the multimeter. As the capacitor charges, current will flow and there will be voltage drop across the resistor. When the capacitor reaches its charge capacity (that is, it _charges_), the current will diminish to zero Amperes and the voltage at V<sub>C</sub> will climb back to the power-supply voltage (either 3.3V or 5V). _Why?_
+4. Now take the capacitor out of the circuit, making sure you don't touch the terminals to each other or connect them with a conductive channel, and plug it into the second circuit below:
 
 ![alt text](images/capacitor-discharging.jpg "Capacitor discharging circuit")
 
@@ -81,7 +78,10 @@ Capacitors are a key component of a [flip-flop](https://www.youtube.com/watch?v=
 
 #### 1.3 Present
 
-**TODO**
+In the [Lab Notebook](README.md), include:
+1. A short narrative about the experiment. _What is the voltage when the capacitor finishes charging? Why?_
+2. The approximate time to charge and discharge the capacitor. (2 values)
+3. An instantaneous value for the charging and discharging currents. (2 values) _Note: These currents are not constant, and with this equipment we may only be able to capture an instantaneous non-zero current value._
 
 ### Section 2: Logic level converter
 
