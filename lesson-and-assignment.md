@@ -111,7 +111,7 @@ Most importantly for us, the two circuits should **not** be connected directly t
 #### 2.2 Apply
 
 1. Hook up one of the converters and power it properly as shown in the hookup guide. It is best to use the lower part of the short breadboard, below the micro:bit breakout. You need to power the two sides with the two different voltages and two _different grounds_! _Warning: Please, do not confuse the **low voltage 3.3V** with the **high voltage 5V** or you will damage the converter._
-2. Hook up a powered wire from the long breadboard to one of the lines on the _high-voltage (HV) side_ and the voltage on the opposite terminal on the _low-voltage (LV) side_ with the multimeter. Use the long breadboard power supply ON-OFF switch to power and depower the line. _Please, do this very gently!!!_
+2. Hook up a powered wire from the long breadboard to one of the lines on the _high-voltage (HV) side_. Connect the multimeter to the opposite terminal on the _low-voltage (LV), to measure the voltage. Use the long breadboard power supply ON-OFF switch to power and depower the line. _Please, do this very gently!!!_
 3. Now connect the _LV_ pin to a digital input pin of the micro:bit. Read the pin and light the LED matrix position at (0, 0) depending on the reading. Power and depower the line on the _HV_ pin. 
 4. Hook up a ditigal output pin from the micro:bit to the _LV_, drive it with a short program, and measure the voltage on the _HV_ with the multimeter.
 5. Now build a simple resistor-and-LED circuit on the long board, and drive it with the _HV_ pin. 
@@ -393,29 +393,42 @@ In the [Lab Notebook](README.md), include:
 1. A narrative about the experiment.
 2. Answers to the questions in 7.1.
 3. Answers to the questions in 7.2.
-4. Short video of the operation of the circuit and program from 2.2.2.
+4. Short video of the operation of the circuit and program from 7.2.2.
 
 In the [repository](./), include:
 1. File `microbit-program-7-2-2.js` with the code you used in task 7.2.2.
 
 ### Section 8: Flip-flop control signals
 
-**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
-
 #### 8.1 Study
 
-**TODO**
+If you have seen that your counter counts backwards, it may be because the flip-flop starts in a random unstable state and stabilizes into a wrong state. We can attempt to remedy this by using one of the _control signals_. Looking at the function table in the [74LS74 datasheet](http://www.ti.com/lit/ds/symlink/sn74ls74a.pdf), notice and understand that:
+1. The control signals are **/PRE** and **/CLR**. _Where does it say so?_   
+2. They override all other signals. _Where is this shown?_    
+3. They are _active low_. _How can you determine that?_   
+4. **/PRE** forces **Q** to _logic high_, whereas **/CLR** forces it to _logic low_. _Explain how this is known?_   
+
+When we turn power on and the clock signal is active, the counter just starts working from a random startup state. We need to instead initialize it in a known state. In particular, we need to start the counter at `000`. To do this, we can connect all **/CRL** signals together and drive them with a logic-low pulse from the micro:bit. Unfortunately, our voltage converter board only has 4 lines, and we are already using them for the clock and the 3-bit input. We will need to trade.
 
 #### 8.2 Apply
 
-1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
-2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
-3. Commit to your repository as file `clk-led-clr.js'.
-4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
+1. Disconnect the **3Q** output corresponding to **b<sub>2</sub>** from the HV pin of the voltage converter board. We won't need it.
+2. Disconnect the digital input line from the corresponding LV pin and ground it on the micro:bit. _Why should we do this?_
+3. Disconnect **1/CLR**, **2/CLR**, and **3/CLR** from logic high at 5V, connect them together, and then connect them through the vacated voltage converter line to an unused digital write micro:bit GPIO pin.
+4. Modify the program from 7.2.2 to output a short low pulse (see diagram below) at the digital write pin on a simultaneous press of both buttons. _How will you do this in code?_
+5. Power and run the circuit with the new program. _What counter do you have now?_
+6. Press `AB` to initialize the counter in the proper known state `00`. _Is it working? If your counter was counting downward, does this fix it? Explain what you see to the best of your knowledge._
 
 #### 8.3 Present
 
-**TODO**
+In the [Lab Notebook](README.md), include:
+1. A narrative about the experiment.
+2. Answers to the questions in 8.1.
+3. Answers to the questions in 8.2.
+4. Short video of the operation of the circuit and program from 8.2.6.
+
+In the [repository](./), include:
+1. File `microbit-program-8-2-6.js` with the code you used in task 8.2.6.
 
 ## Resources
 
