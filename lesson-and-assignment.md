@@ -242,20 +242,45 @@ Further on in the assignment we are going to need to read the output of our over
 
 Study the micro:bit JavaScript function [`onPulsed`](https://makecode.microbit.org/reference/pins/on-pulsed). Guidance:
 1. It is an _event-handler setter_. _Setter_ means that it is a function which specifies (sets) the handler function for some event. State your understanding of the terms _event_, _event handler_, and _asynchronous execution_.
-2. Remember what other similar micro:bit JS functions you are familiar with.
-3. Look at the function signature (name+argument types+return type) and asnwer the question _what the event being handled here is_.
+2. Remember what other similar micro:bit JS functions you are familiar with, and list them.
+3. Look at the function signature (name + argument types + return type) and asnwer the question _what the event being handled here is_.
 4. Look at the arguments and answer the question _what the event handler is in this case_.
 5. Bearing in mind that the alternating voltage levels of the square wave are also called _pulses_, notice the second argument of `onPulsed`, remember the signal events for the square wave, and answer the question _which of the events we can specify_.
-6. Considering that we want to read the flip-flop output at the right moment in time, think about when our flip-flop changes state and answer the question _what value we should pick for the second argument of the pulse event handler setter_.
+6. Considering that we want to read the flip-flop output at the right moment in time, think about when our flip-flop changes state and answer the question _what value we should pick for the second argument of the pulse event handler setter_. _Hint: Look ahead at the top two lines of the [Timing Diagram](https://github.com/ivogeorg/ce-lesson-and-asst-006-flip-flops/blob/master/images/timing-diagram.jpg) in Section 6._
 
 #### 5.2 Apply
 
 1. Disconnect the **1Q** output from the LED circuit.
 2. Pick a micro:bit GPIO pin as a digital read pin and connect the **1Q** output to it through one of the lines of the voltage level converter.
 3. Modify your program from task 4.2.6 as follows:
-   1. Add a pulse event handler setter with the proper arguments. _Make sure you have gone through the Study section first._
-   2. In the third argument, take a reading of the digital read pin.
-   3. Synchronize the micro:bit LED matrix at position (0, 1) with the value read. That is, the LED should be lit when the reading is logic high. _Note that this is one position below the clock generator indicator LED at position (0, 1). This way you will be able to watch them next to each other._
+   1. Add pulse event handler setters with the proper arguments. _Make sure you have gone through the Study section first and have you can confidently answer the questions._
+   ```TypeScript
+   // this is just a general skeleton for your program
+   
+   // Global Variables
+   let pause_us : number = 200   // pause period in microseconds
+
+   // Event Handling
+   input.onButtonPressed(Button.A, function () {
+        // control the frequency of the square wave
+   })
+   // other button events here...
+   
+   pins.onPulsed(DigitalPin.P2, PulseValue.Low, function () {
+       // take a reading of pin P2 when it is pulsed low
+   })
+   // other pin events here...
+
+   // Repeated Actions
+   basic.forever(function () {
+       pins.digitalWritePin(DigitalPin.P12, 1)  // positive edge of clock
+       basic.pause(pause_us)
+       pins.digitalWritePin(DigitalPin.P12, 0)  // negative edge of clock
+       basic.pause(pause_us)
+   })
+   ```
+   2. Take readings of the digital read pin at the appropriate times.  _Make sure you have gone through the Study section first and have you can confidently answer the questions._
+   3. Synchronize the micro:bit LED matrix at position (0, 1) with the digital read pin. That is, the LED should be lit when the reading is logic high. _Note that this is one position below the clock generator indicator LED at position (0, 1). This way you will be able to watch them next to each other._
 4. Run the program to drive the D-type flip-flop and read its values. Change the clock frequency up and down. _What can you tell about the relative frequency of the clock and the flip-flop Q output?_
 
 #### 5.3 Present
@@ -287,35 +312,31 @@ Counters are an important class of sequential circuits which are designed to cyc
    _Note: An **active low** signal (one which is designed to be "on" when it is **logic low**), like **1/Q** and **1/CLR**, can be represented in a diagram with its non-negated name, that is, **Q** and **CLR** in this case, and a circle ° outside the box at the terminal pin, as it is done in this diagram. The circle comes from the shortened representation of an **inverter** (skim the Wikipedia article on [inverter logic gate](https://en.wikipedia.org/wiki/Inverter_(logic_gate))). This notation is equivalent to the bar (forward slash in our case) over the name._
    3. Remember when our D-type flip-flop changes state and trace the signals through the circuit, as shown on the following diagram:
    ![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
-   4. Complete the full timing diagram for one full cycle to prove that this is a mod-8 counter. _How are you going to read off the numbers from the diagram?_
+   4. Complete the full timing diagram for one full cycle to prove that this is a mod-8 counter. 
+   5. Remember what the bit patterns of the binary numbers [0<sub>10</sub>, 7<sub>10</sub>] are and answer the question _how you are going to read off the numbers from the diagram_.
 
 #### 6.2 Apply
 
 1. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget to place the chips with notches pointing up, and to power and ground each chip. See the [lab kit guide](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit?usp=sharing) for details._
-2. Use the same clock signal from the task 3.2.2 and connect it through the logic level converter board to the **1CLK** input of the first (leftmost on the diagram) D-type flip-flop.
-3. Connect all **/CRL** and **/PRE** to logic high (5V).
-4. Pick 3 micro:bit GPIO pins to be analog write and build 3 standard resistor-and-LED circuits on the short breadboard. Pick 3 other micro:bit GPIO pins to be digital read and connect the outputs **3Q**, **2Q**, and **1Q** through the logic level converter board to them, _in this order_. These represent the **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer. _Why don't we put them in arbitrary order?_
-5. Modify your program from task 4.2.4 as follows:
-   1. Read the digital pins
-
-
-5. ~Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_~
+2. Use the same clock signal from 3.2.2 and following tasks, connected through the logic level converter board to the **1CLK** input of the first (leftmost on the diagram) D-type flip-flop.
+3. Connect all 3 **/CRL** and 3 **/PRE** to logic high (5V).
+4. Pick 2 more micro:bit GPIO pins to be digital read and connect the remainging two outputs **3Q** and **2Q** through the last 2 remaingin lines of the logic level converter board to them. Together with the already connected **Q1** from the previous section, these represent the **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** output in the drawing above, which in turn represents a 3-bit binary integer. _Explain in what order the 3 bits should be read to properly represent a binary integer._
+5. Modify your program from task 5.2.4 as follows:
+   1. Read all 3 digital pins at the proper time. _Explain whether the events at which your took the readings in the previous sections are still the appropriate times to read all three digital input pins, or, if not, what the appropriate time is._
+   2. Synchronize the resulting **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern with LED positions (0:2, 1).
+6. Load the program, turn on the power, and observe the operation of your circuit. _Do you have a 3-bit mod-8 counter or something else? If it's indeed a counter, is it counting upward or downward? When you turn the power off and on repeatedly, does the direction change? Explain why or why not._
 
 #### 6.3 Present
 
-**TODO**
 In the [Lab Notebook](README.md), include:
 1. A short narrative about the experiment.
-2. Answers to the questions in 5.1.
-3. Answers to the questions in 5.2.
+2. Answers to the questions in 6.1.
+3. Answers to the questions in 6.2.
 4. An image with your hand-drawn diagram of the whole circuit. Use boxes for the micro:bit, converter board, and the flip-flop chip. Label all pins.
-5. Short video of the operation of the circuit from 5.2.4.
+5. Short video of the operation of the circuit from 6.2.6.
 
 In the [repository](./), include:
-1. File `microbit-program-5-2-4.js` with the code you used in task 5.2.4.
-
-**TODO:** Does it count forward or backward? If backward, explain how that can be?
-
+1. File `microbit-program-6-2-5.js` with the code you used in task 6.2.5.
 
 ### Section 7: Flip-flop control signals
 
