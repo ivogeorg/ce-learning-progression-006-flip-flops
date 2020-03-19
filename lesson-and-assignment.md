@@ -203,26 +203,36 @@ Read the [section on the flip-flop in Lesson 006: Memory](https://docs.google.co
 
 **TODO:**  Single flipflop, with output driving two external LED circuits. _Can it?_ Also, the clock should flash at matrix position (0, 0).
 
-1. Place a 74LS74 chip in the middle of a breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath._
-2. Using the pinout of the chip, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
-3. ~Use the _function generator_ on the workstation to generate the clock signal for the _top_ flip-flop:~
-   1. ~Set the wave form to **SQUARE**. _Make sure the high voltage is 5V._~
-   2. ~Choose a very low frequency, say a _fraction of a Hz_. _You will want to vary the frequency with the nob at the top left of the workstation._~
-   3. ~Connect the **OUT** column from the generator to your **1CLK** input.~
-4. ~Connect a TTL logic switch to the **1D** input.~
-5. ~Connect the **1Q** and **1/Q** to two TTL logic LEDs (top right). _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._~
-6. Connect **1/CLR** and **1/PRE** to logic high (5V).
-7. With a very low clock frequency, toggle the input switch and watch the output LEDs. At low frequency, you will see a lag.
-8. Increase the frequency to see that the lag stops being dinstinguishable.
+1. Place a 74LS74 chip in the middle of the long breadboard tile (across the center groove). _Note: The chip has a **notch** or **dent**, which has to be pointing **UP**. Otherwise, you will burn both the chip and the tile underneath. Refer to the [lab kit guide](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit?usp=sharing) for details._
+2. Using the pinout of the chip, shown in the datasheet, connect the chip to V<sub>CC</sub> of 5V and GND of 0V.
+3. Build two of our standard resistor-and-LED circuits on the long board and connect them to **1Q** and **1/Q**. _Note: The bar on top of a symbol, in this case Q, means NOT. That is, whatever the value of Q is (logic high or logic low), /Q will be the opposite. We are using the **forward slash** because markdown cannot represent a bar._ See the diagram below:
+   ```
+                                 ^^
+   -----                        //
+       |       220 Ohms        //
+     1Q|------/\/\/\/\/------[LED]-----                       This is for 1Q. Do the same for 1/Q.
+       |                              |
+       |                              |
+       |                            -----
+       |                             ---
+       |                              -
+   ```
+3. Connect the HV pin of the converter corresponding to your micro:bit clock signal from task 3.2.2 to the **1CLK** pin of the flip-flop IC.
+4. Modify the original program to blink the LED matrix at position (0, 0) with the clock.
+5. Connect **1/CLR** and **1/PRE** to logic high (5V).
+6. Using your micro:bit buttons, select a very low clock frequency to drive the flip-flop. At low frequency, you will see a lag between micro:bit LED matrix position (0, 0) and the external LEDs on the long breadboard.
+7. Increase the frequency to see that the lag stops being dinstinguishable.
 
 #### 4.3 Present
 
-**TODO**
+In the [Lab Notebook](README.md), include:
+1. A short narrative about the experiment.
+2. An image with your hand-drawn diagram of the whole circuit. Use boxes for the micro:bit, converter board, and the flip-flop chip. Label all pins.
+2. Short video of the operation of the circuit from 4.2.6.
+3. Short video of the operation of the circuit from 4.2.7.
 
-1. Draw the circuit and include an image of the drawing in your README. _Use the **images** directory. See the [template](submission-template.md) or this file to see how to write the markdown for embedding images._
-2. Take a picture of your setup and include it in your README.
-3. ~With the switch at logic low, connect Channel 1 of the oscilloscope to your clock signal, and Channel 2 to your Q output. Set the _trigger_ on a _rising edge_ of Channel 2. Adjust the channels so you can see the clock on top of the Q output. (_We'll demo this in class._) Set the mode to **RUN** (not **AUTO**), then hit **SINGLE** and turn the input switch (D) on. You should be able to capture the Q signal rising from low to high, closely aligned _after_ a clock positive edge.~
-4. ~Take a picture of the oscilloscope window and include in your README.~
+In the [repository](./), include:
+1. File `microbit-program-4-2-4.js` with the code you used in task 4.2.4.
 
 ### Section 5: 3-bit modulus counter
 
