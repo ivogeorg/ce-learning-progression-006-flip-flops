@@ -236,7 +236,39 @@ In the [repository](./), include:
 
 ### Section 5: Reading clocked flip-flop output with the micro:bit
 
-**TODO:** Program to read `onPulsed` only when the pulse is high (???). Connect **1Q** to micro:bit and synch with LED at position (0, 1).
+#### 5.1 Study
+
+Further on in the assignment we are going to need to read the output of our overall circuit _at a precise point in time_ so as to avoid missed values and duplicates. We will do this for the 1 flip-flop first and then extend to the 3 which we will need for the final circuit.
+
+Study the micro:bit JavaScript function [`onPulsed`](https://makecode.microbit.org/reference/pins/on-pulsed). Guidance:
+1. It is an _event-handler setter_. _Setter_ means that it is a function which specifies (sets) the handler function for some event. State your understanding of the terms _event_, _event handler_, and _asynchronous execution_.
+2. Remember what other similar micro:bit JS functions you are familiar with.
+3. Look at the function signature (name+argument types+return type) and asnwer the question _what the event being handled here is_.
+4. Look at the arguments and answer the question _what the event handler is in this case_.
+5. Bearing in mind that the alternating voltage levels of the square wave are also called _pulses_, notice the second argument of `onPulsed`, remember the signal events for the square wave, and answer the question _which of the events we can specify_.
+6. Considering that we want to read the flip-flop output at the right moment in time, think about when our flip-flop changes state and answer the question _what value we should pick for the second argument of the pulse event handler setter_.
+
+#### 5.2 Apply
+
+1. Disconnect the **1Q** output from the LED circuit.
+2. Pick a micro:bit GPIO pin as a digital read pin and connect the **1Q** output to it through one of the lines of the voltage level converter.
+3. Modify your program from task 4.2.6 as follows:
+   1. Add a pulse event handler setter with the proper arguments. _Make sure you have gone through the Study section first._
+   2. In the third argument, take a reading of the digital read pin.
+   3. Synchronize the micro:bit LED matrix at position (0, 1) with the value read. That is, the LED should be lit when the reading is logic high. _Note that this is one position below the clock generator indicator LED at position (0, 1). This way you will be able to watch them next to each other._
+4. Run the program to drive the D-type flip-flop and read its values. Change the clock frequency up and down. _What can you tell about the relative frequency of the clock and the flip-flop Q output?_
+
+#### 5.3 Present
+
+In the [Lab Notebook](README.md), include:
+1. A short narrative about the experiment.
+2. Answers to the questions in 5.1.
+3. Answers to the questions in 5.2.
+4. An image with your hand-drawn diagram of the whole circuit. Use boxes for the micro:bit, converter board, and the flip-flop chip. Label all pins.
+5. Short video of the operation of the circuit from 5.2.4.
+
+In the [repository](./), include:
+1. File `microbit-program-5-2-4.js` with the code you used in task 5.2.4.
 
 ### Section 6: 3-bit modulus counter
 
@@ -274,48 +306,45 @@ Counters are an important class of sequential circuits which are designed to cyc
 **TODO**
 In the [Lab Notebook](README.md), include:
 1. A short narrative about the experiment.
-2. An image with your hand-drawn diagram of the whole circuit. Use boxes for the micro:bit, converter board, and the flip-flop chip. Label all pins.
-2. Short video of the operation of the circuit from 4.2.6.
-3. Short video of the operation of the circuit from 4.2.7.
+2. Answers to the questions in 5.1.
+3. Answers to the questions in 5.2.
+4. An image with your hand-drawn diagram of the whole circuit. Use boxes for the micro:bit, converter board, and the flip-flop chip. Label all pins.
+5. Short video of the operation of the circuit from 5.2.4.
 
 In the [repository](./), include:
-1. File `microbit-program-4-2-4.js` with the code you used in task 4.2.4.
-
-**TODO**
-6. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
-
-### Section 7: Display raw counter output on micro:bit external LEDs
+1. File `microbit-program-5-2-4.js` with the code you used in task 5.2.4.
 
 **TODO:** Does it count forward or backward? If backward, explain how that can be?
 
-### Section 8: Flip-flop control signals
+
+### Section 7: Flip-flop control signals
 
 **TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
 
-#### 8.1 Study
+#### 7.1 Study
 
 **TODO**
 
-#### 8.2 Apply
+#### 7.2 Apply
 
 1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
 2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
 3. Commit to your repository as file `clk-led-clr.js'.
 4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
 
-#### 8.3 Present
+#### 7.3 Present
 
 **TODO**
 
-### Section 9: Display decoded counter output on micro:bit LED matrix
+### Section 8: Display decoded counter output on micro:bit LED matrix
 
 **TODO:** Binary decoding.
 
-#### 9.1 Study
+#### 8.1 Study
 
 **TODO:** Multiple `forever` loops. Events and event handlers. Asynchronous execution and reactive fiber scheduling. `onPulse` event and conditions for counter advancement. Decoding of 3-bit binary into decimal to display on LED matrix. Handling clock skew.
 
-#### 9.2 Apply
+#### 8.2 Apply
 
 1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
    1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to 3 chosen micro:bit _digital read_ pins. _Note: First, disconnect them from the TTL output LEDs._
@@ -343,7 +372,7 @@ In the [repository](./), include:
 5. Commit to your repository as file `clk-led-no-skew.js`.
 6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
-#### 9.3 Present
+#### 8.3 Present
 
 **TODO**
 
