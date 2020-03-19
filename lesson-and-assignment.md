@@ -234,9 +234,13 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-4-2-4.js` with the code you used in task 4.2.4.
 
-### Section 5: 3-bit modulus counter
+### Section 5: Reading clocked flip-flop output with the micro:bit
 
-#### 5.1 Study
+**TODO:** Program to read `onPulsed` only when the pulse is high (???). Connect **1Q** to micro:bit and synch with LED at position (0, 1).
+
+### Section 6: 3-bit modulus counter
+
+#### 6.1 Study
 
 Counters are an important class of sequential circuits which are designed to cycle through several states corresponding to the _binary_ natural numbers, in order from zero to some number `n - 1`. They are also known as _modulus-n_, _modulo-n_, or _mod-n_ counters.
 
@@ -248,21 +252,24 @@ Counters are an important class of sequential circuits which are designed to cyc
    1. Remember that signals flow from left to right, so inputs are going to be on the left of a device and outputs on the right (although, in this diagram, the outputs of the overall circuit are shown to go up for clarity).
    2. Notice that the circuit is composed of 3 D-type flip-flops in a row, and the output of one is the input of another and answer the question _what the only input to the mod-8 counter is_.
    ![alt text](images/3-bit-mod-ctr.jpg "3-bit modulus counter")
-   _Note: An **active low** signal, **1/Q** and **1/CLR** can be represented in a diagram with its non-negated name, that is, **Q** and **CLR** in this case, and a circle ° outside the box at the terminal pin, as it is done in this diagram. The circle comes from the shortened representation of an **inverter** (skim the Wikipedia article on [inverter logic gate](https://en.wikipedia.org/wiki/Inverter_(logic_gate)))._
+   _Note: An **active low** signal (one which is designed to be "on" when it is **logic low**), like **1/Q** and **1/CLR**, can be represented in a diagram with its non-negated name, that is, **Q** and **CLR** in this case, and a circle ° outside the box at the terminal pin, as it is done in this diagram. The circle comes from the shortened representation of an **inverter** (skim the Wikipedia article on [inverter logic gate](https://en.wikipedia.org/wiki/Inverter_(logic_gate))). This notation is equivalent to the bar (forward slash in our case) over the name._
    3. Remember when our D-type flip-flop changes state and trace the signals through the circuit, as shown on the following diagram:
    ![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
    4. Complete the full timing diagram for one full cycle to prove that this is a mod-8 counter. _How are you going to read off the numbers from the diagram?_
 
-#### 5.2 Apply
+#### 6.2 Apply
 
-**TODO**
 1. Using two 74LS74 chips, build a 3-bit modulus counter from 3 of the D-type flip-flops. _Don't forget to place the chips with notches pointing up, and to power and ground each chip. See the [lab kit guide](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit?usp=sharing) for details._
-2. Use the same clock signal from the previous [section](#requirements-1).
-3. Disconnect the **1Q** input from the input switch. Instead, connect the 3 _clear_ signals **1/CLR**, **2/CLR**, and **3/CLR** together to the same switch and turn the switch on (red light). We'll call this the _clear switch_.
-4. Connect the outputs **3Q**, **2Q**, and **1Q** to three logic output LEDs, so they line up _in this order_ (on the horizontal line of LEDs at the top right). _Note: These represent a **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer._
-5. Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_
+2. Use the same clock signal from the task 3.2.2 and connect it through the logic level converter board to the **1CLK** input of the first (leftmost on the diagram) D-type flip-flop.
+3. Connect all **/CRL** and **/PRE** to logic high (5V).
+4. Pick 3 micro:bit GPIO pins to be analog write and build 3 standard resistor-and-LED circuits on the short breadboard. Pick 3 other micro:bit GPIO pins to be digital read and connect the outputs **3Q**, **2Q**, and **1Q** through the logic level converter board to them, _in this order_. These represent the **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern in the drawing above, representing a 3-bit binary integer. _Why don't we put them in arbitrary order?_
+5. Modify your program from task 4.2.4 as follows:
+   1. Read the digital pins
 
-#### 5.3 Present
+
+5. ~Toggle the clear switch off and on quickly. This zeroes out the circtuit and then it starts counting from 0 to 7 _in binary_. Remember the patterns for binary counting: `000 - 001 - 010 - 011 - 100 - 101 - 110 - 111`. When an LED is lit up, it represents a 1, and when it is dark, a 0. Verify that your 3-bit counter is working properly. _Note: The fact that the counter returns to `000` after reaching `111`, always cycling through the numbers in the same order, gives it the name "modulus". In this case, this is modulus-8 (aka modulo-8 or mod-8). A modulus counter never reaches the number in its name. Remember 0-based counting!_~
+
+#### 6.3 Present
 
 **TODO**
 In the [Lab Notebook](README.md), include:
@@ -277,38 +284,38 @@ In the [repository](./), include:
 **TODO**
 6. Record a video of your setup and the output LEDs counting and link to it in your README. _Note: Tune the frequency so as to minimize the video length but the individual numbers can still be seen._
 
-### Section 6: Display raw counter output on micro:bit external LEDs
+### Section 7: Display raw counter output on micro:bit external LEDs
 
-**TODO**
+**TODO:** Does it count forward or backward? If backward, explain how that can be?
 
-### Section 7: Flip-flop control signals
+### Section 8: Flip-flop control signals
 
 **TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
 
-#### 7.1 Study
+#### 8.1 Study
 
 **TODO**
 
-#### 7.2 Apply
+#### 8.2 Apply
 
 1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
 2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
 3. Commit to your repository as file `clk-led-clr.js'.
 4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
 
-#### 7.3 Present
+#### 8.3 Present
 
 **TODO**
 
-### Section 8: Display decoded counter output on micro:bit LED matrix
+### Section 9: Display decoded counter output on micro:bit LED matrix
 
 **TODO:** Binary decoding.
 
-#### 8.1 Study
+#### 9.1 Study
 
 **TODO:** Multiple `forever` loops. Events and event handlers. Asynchronous execution and reactive fiber scheduling. `onPulse` event and conditions for counter advancement. Decoding of 3-bit binary into decimal to display on LED matrix. Handling clock skew.
 
-#### 8.2 Apply
+#### 9.2 Apply
 
 1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
    1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to 3 chosen micro:bit _digital read_ pins. _Note: First, disconnect them from the TTL output LEDs._
@@ -336,7 +343,7 @@ In the [repository](./), include:
 5. Commit to your repository as file `clk-led-no-skew.js`.
 6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
 
-#### 8.3 Present
+#### 9.3 Present
 
 **TODO**
 
