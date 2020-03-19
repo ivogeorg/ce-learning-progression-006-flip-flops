@@ -343,8 +343,6 @@ In the [repository](./), include:
 
 #### 7.1 Study
 
-**TODO:** Multiple `forever` loops. Events and event handlers. Asynchronous execution and reactive fiber scheduling. `onPulse` event and conditions for counter advancement. Decoding of 3-bit binary into decimal to display on LED matrix. Handling clock skew.
-
 Now that we have a reading of the 3-bit counter output and can verify its proper execution by displaying it as a bit-pattern on a line of LEDs, we can turn to a more useful display of the counter values. In particular, we want to use `showNumber` to show the current counter value in _decimal_.
 
 1. Recall how non-negative integers expressed in different _positional numeral systems_ can be converted from one to another, and come up with an expression to convert the 3-bit binary number into a decimal number. _How many digits does a 3-bit binary number have when converted to decimal?_
@@ -373,39 +371,32 @@ To counteract such effect, we need to understand more about the inner workings o
    1. This reference section is called _Reactive_ and the first thing that you read in it is that the micro:bit continuously reacts to _events_. _In your words, what is your understanding of an event after doing the reading?_
    2. _Concurrent_ execution is one of the most powerful capabilities of modern computers and, specifically, the runtime environments and operating systems which support it. In simple terms, concurrency is _execution **at the same time**_. _In your words, how does the micro:bit achieve the **illusion of execution at the same time**?_ 
    3. You already knew that different parts of your program are executed at differnt times and (i) that is not usually obvious from reading the code, and (ii) you, as a programmer, have limited control over what executes when. The clock skew we are talking about is one of the effects of our limited control. _In your words, what does the **scheduler** do and how do you think it might cause the subprogram that you wrote to do one thing a certain way to actually do it another way or do something entirely unintended?_
-   4. Finally, discuss the pros and const of _putting the square wave generator subprogram and the binary decoding in **two separate `forever` loops**.
+   4. The fact that there is some _non-determinism_ in the execution of your program should not discourage you. Instead, you should use new knowledge of the mechanisms of program execution to write your code to minimize or even completely avoid the unintended effects. A significant part of being a good programmer is such knowledge and skill. Computer engineers have a merked advantage due to their knowledge of hardware and low-level programming. So, let's practice. In the light of what you read, discuss the pros and cons of _putting the square wave generator subprogram and the binary decoding in **two separate `forever` loops**.
 
 #### 7.2 Apply
 
-1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
-   1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to 3 chosen micro:bit _digital read_ pins. _Note: First, disconnect them from the TTL output LEDs._
-   2. Remember that the counter updates at every _positive edge_ of the clock. So, your program should check the values of the 3 digital read bits _between_ the clock pin writing 1 and writing 0:
-   ```TypeScript
-   basic.forever(function () {
-       pins.digitalWritePin(DigitalPin.P12, 1)
-       basic.pause(200)   // This will have to be reduced, and will mess the variable frequency
-       let b0 = pins.digitalReadPin(DigitalPin.P0)
-       let b1 = pins.digitalReadPin(DigitalPin.P1)
-       let b2 = pins.digitalReadPin(DigitalPin.P2)
-       // more code...
-       pins.digitalWritePin(DigitalPin.P12, 0)
-       basic.pause(200)
-   })
-   ```
-   3. Remember what a _positional numeral system_ is and convert the bit pattern **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** from binary to decimal. _Hint: Sum of powers._
-   4. Show this number on the micro:bit LED matrix.
-2. Commit to your repository as file `clk-led.js`.
-3. Record a video showing the micro:bit driving the counter and showing the count on the LEDs, and link to it in your README. _Note: At this point, your circuit should look more or less like the picture at the top of the assignment._
-
-   **TODO:** Expand the following to systematically explore issues of timing.
-
-4. The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. That is, the time it spends at logic high is going to be longer than the time it spends at logic low. Try to ameliorate this effect, by either experimenting with shorter pause times or by a more sophisticated method. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-microbit). 
-5. Commit to your repository as file `clk-led-no-skew.js`.
-6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
+1. Modify your program from task 3.2.5 as follows:
+   1. Remove from the original `forever` loop all code for syncing LED matrix positions with the flip-flops' **Q** outputs.
+   2. Leave the blinking (0, 0) code in the original `forever` loop.
+   3. Write a function `bin2dec` with three number arguments, one for each bit of the counter, to decode the binary pattern and return a number in decimal.
+   4. Add a second _separate_ `forever` loop in which you repeatedly call `bin2dec` with the current values of the 3 bits as set by your pin event handlers.
+2. Run the program and circuit. Answer the following questions:
+   1. Is your counter displaying correctly? 
+   2. Do you notice some numbers displaying longer than others (that is, clock skew)? 
+   3. Does the unevenness, if any, change with increasing or decreasing the clock frequency? Why or why not? 
+   4. Is the (0, 0) LED still blink evenly with the clock? Why or why not?
+3. Revisit your discussion on separating subprograms in multiple `forever` loops.
 
 #### 7.3 Present
 
-**TODO**
+In the [Lab Notebook](README.md), include:
+1. A narrative about the experiment.
+2. Answers to the questions in 7.1.
+3. Answers to the questions in 7.2.
+4. Short video of the operation of the circuit and program from 2.2.2.
+
+In the [repository](./), include:
+1. File `microbit-program-7-2-2.js` with the code you used in task 7.2.2.
 
 ### Section 8: Flip-flop control signals
 
