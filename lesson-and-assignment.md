@@ -324,6 +324,7 @@ Counters are an important class of sequential circuits which are designed to cyc
 5. Modify your program from task 5.2.4 as follows:
    1. Read all 3 digital pins at the proper time. _Explain whether the events at which your took the readings in the previous sections are still the appropriate times to read all three digital input pins, or, if not, what the appropriate time is._
    2. Synchronize the resulting **b<sub>2</sub>b<sub>1</sub>b<sub>0</sub>** pattern with LED positions (0:2, 1).
+   3. (Optional) Pick 3 free micro:bit GPIO pins and drive 3 standard external resistor-and-LED circuits in synchrony with the LED matrix pattern.
 6. Load the program, turn on the power, and observe the operation of your circuit. _Do you have a 3-bit mod-8 counter or something else? If it's indeed a counter, is it counting upward or downward? When you turn the power off and on repeatedly, does the direction change? Explain why or why not._
 
 #### 6.3 Present
@@ -338,34 +339,43 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-6-2-5.js` with the code you used in task 6.2.5.
 
-### Section 7: Flip-flop control signals
-
-**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
+### Section 7: Display decoded counter output on micro:bit LED matrix
 
 #### 7.1 Study
 
-**TODO**
-
-#### 7.2 Apply
-
-1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
-2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
-3. Commit to your repository as file `clk-led-clr.js'.
-4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
-
-#### 7.3 Present
-
-**TODO**
-
-### Section 8: Display decoded counter output on micro:bit LED matrix
-
-**TODO:** Binary decoding.
-
-#### 8.1 Study
-
 **TODO:** Multiple `forever` loops. Events and event handlers. Asynchronous execution and reactive fiber scheduling. `onPulse` event and conditions for counter advancement. Decoding of 3-bit binary into decimal to display on LED matrix. Handling clock skew.
 
-#### 8.2 Apply
+Now that we have a reading of the 3-bit counter output and can verify its proper execution by displaying it as a bit-pattern on a line of LEDs, we can turn to a more useful display of the counter values. In particular, we want to use `showNumber` to show the current counter value in _decimal_.
+
+1. Recall how non-negative integers expressed in different _positional numeral systems_ can be converted from one to another, and come up with an expression to convert the 3-bit binary number into a decimal number. _How many digits does a 3-bit binary number have when converted to decimal?_
+
+Now that we don't have a fully equipped lab, we use a `forever` loop to generate the clock signal in the micro:bit, instead of using an [external function generator](https://www.rigolna.com/products/waveform-generators/dg1000/) or a [clock source output](https://www.nordicsemi.com/-/media/Software-and-other-downloads/Product-Briefs/nRF51822-product-brief.pdf?la=en&hash=A4B5A9AA6675A58F7B779AF81C860CD69EB867FD) from the micro:bit. As we expand our program with additional features (now showing the counter value in decimal), we can anticipate that the code for each additional feature is going to swell unevenly throughout the structure of our program, potentially _skewing_ the square wave for the clock. Skim the Wikipedia article on [clock skew](https://en.wikipedia.org/wiki/Clock_skew) to reinforce your understanding of the significance of clock signals and simultaneously learn about the beneficial and detrimental effects of clock skew. For us, the clock skew may look as shown in the diagram:
+```
+   5V       |------|        |------
+            |      |        |          A skewed square wave...
+   0V ------|      |--------|          
+                            ^
+                            |
+                            this edge arrives too late!
+```
+This is equivalent to having a program with uneven or even random `pause` intervals:
+```TypeScript
+basic.forever(function () {
+    pins.digitalWritePin(DigitalPin.P12, 1)  // positive edge
+    basic.pause(pause_us)
+    pins.digitalWritePin(DigitalPin.P12, 0)  // negative edge 
+    basic.pause(Math.randomRange(pause_us - 50, pause_us + 50))  // next positive dithers (i.e. is uneven)
+})
+```
+To counteract such effect, we need to understand more about the inner workings of the micro:bit.
+
+2. A full account of the [micro:bit software stack](https://mattwarren.org/2017/11/28/Exploring-the-BBC-microbit-Software-Stack/) is beyond the scope of this lesson & assignment, but MakeCode provides a simplified, though still extensive, description. Read the micro:bit reference section on [asynchronous event handling, concurrent execution, and fiber scheduling](https://makecode.microbit.org/device/reactive). Guidance:
+   1. This reference section is called _Reactive_ and the first thing that you read in it is that the micro:bit continuously reacts to _events_. _In your words, what is your understanding of an event after doing the reading?_
+   2. _Concurrent_ execution is one of the most powerful capabilities of modern computers and, specifically, the runtime environments and operating systems which support it. In simple terms, concurrency is _execution **at the same time**_. _In your words, how does the micro:bit achieve the **illusion of execution at the same time**?_ 
+   3. You already knew that different parts of your program are executed at differnt times and (i) that is not usually obvious from reading the code, and (ii) you, as a programmer, have limited control over what executes when. The clock skew we are talking about is one of the effects of our limited control. _In your words, what does the **scheduler** do and how do you think it might cause the subprogram that you wrote to do one thing a certain way to actually do it another way or do something entirely unintended?_
+   4. Finally, discuss the pros and const of _putting the square wave generator subprogram and the binary decoding in **two separate `forever` loops**.
+
+#### 7.2 Apply
 
 1. Use 3 digital read pins to read off the binary counter number and display on the micro:bit LED matrix:
    1. Hook up the three **Q** outputs _through the logic level converter_ (from **5V** to **3.3V**) to 3 chosen micro:bit _digital read_ pins. _Note: First, disconnect them from the TTL output LEDs._
@@ -392,6 +402,25 @@ In the [repository](./), include:
 4. The extra computation that we are doing after the first `basic.pause(200)` in the code above is definitely going to _skew_ the clock signal. That is, the time it spends at logic high is going to be longer than the time it spends at logic low. Try to ameliorate this effect, by either experimenting with shorter pause times or by a more sophisticated method. As an extra bonus, try to devise such a solution that would work even when the frequency of the clock is modified by pressing the A and B buttons from the [previous section](#5-drive-counter-with-microbit). 
 5. Commit to your repository as file `clk-led-no-skew.js`.
 6. Record a video to show the full proper operation with minimal or no clock skew, and link in your README within an explanation of your method.
+
+#### 7.3 Present
+
+**TODO**
+
+### Section 8: Flip-flop control signals
+
+**TODO:** Signals are clock out, 3-bit in, and ctl. Volgate converter has only 4 lines :(
+
+#### 8.1 Study
+
+**TODO**
+
+#### 8.2 Apply
+
+1. Use a second converter to drive the control signal **x/CLR** with a micro:bit digital write pin.
+2. Modify your program to clear the counter on a simultaneous press of both A and B buttons. 
+3. Commit to your repository as file `clk-led-clr.js'.
+4. Record a video demonstrating the full operation of your circuit, including the initial clear, and link in the README.
 
 #### 8.3 Present
 
