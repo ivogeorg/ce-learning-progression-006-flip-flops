@@ -308,12 +308,13 @@ Counters are an important class of sequential circuits which are designed to cyc
 3. Study the following circuit, which is a _mod-8 counter_, and explain _how it works_. Guidance:
    1. Remember that signals flow from left to right, so inputs are going to be on the left of a device and outputs on the right (although, in this diagram, the outputs of the overall circuit are shown to go up for clarity).
    2. Notice that the circuit is composed of 3 D-type flip-flops in a row, and the output of one is the input of another and answer the question _what the only input to the mod-8 counter is_.
+   3. Notice that **1/Q** is connected to **1D** and answer the question _whether this is okay and might the input and output interfere with each other when they are directly connected to each other_.
    ![alt text](images/3-bit-mod-ctr.jpg "3-bit modulus counter")
    _Note: An **active low** signal (one which is designed to be "on" when it is **logic low**), like **1/Q** and **1/CLR**, can be represented in a diagram with its non-negated name, that is, **Q** and **CLR** in this case, and a circle ° outside the box at the terminal pin, as it is done in this diagram. The circle comes from the shortened representation of an **inverter** (skim the Wikipedia article on [inverter logic gate](https://en.wikipedia.org/wiki/Inverter_(logic_gate))). This notation is equivalent to the bar (forward slash in our case) over the name._
-   3. Remember when our D-type flip-flop changes state and trace the signals through the circuit, as shown on the following diagram:
+   4. Remember when our D-type flip-flop changes state and trace the signals through the circuit, as shown on the following diagram:
    ![alt text](images/timing-diagram.jpg "Timing diagram of a digital circuit")
-   4. Complete the full timing diagram for one full cycle to prove that this is a mod-8 counter. 
-   5. Remember what the bit patterns of the binary numbers [0<sub>10</sub>, 7<sub>10</sub>] are and answer the question _how you are going to read off the numbers from the diagram_.
+   5. Complete the full timing diagram for one full cycle to prove that this is a mod-8 counter. 
+   6. Remember what the bit patterns of the binary numbers [0<sub>10</sub>, 7<sub>10</sub>] are and answer the question _how you are going to read off the numbers from the diagram_.
 
 #### 6.2 Apply
 
