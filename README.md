@@ -1,4 +1,4 @@
-# CPE 1040 - Spring 2020 (UNDER DEVELOPMENT)
+# CPE 1040 - Spring 2020
 ```
   _           _       _   _       _       _                 _    
  | |         | |     | \ | |     | |     | |               | |   
