@@ -8,6 +8,61 @@ Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87
 
 This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
+Table of Contents
+=================
+
+* [CPE 1040 \- Spring 2020](#cpe-1040---spring-2020)
+  * [Take\-home lab kit](#take-home-lab-kit)    
+        * [Practice](#practice)
+  * [Learning how to learn](#learning-how-to-learn)    
+        * [Learning How to Learn 01](#learning-how-to-learn-01)
+  * [Lesson &amp; Assignment 006: Flip\-flops](#lesson--assignment-006-flip-flops)
+    * [Section 1: Capacitors](#section-1-capacitors)
+      * [1\.1 Study](#11-study)
+      * [1\.2 Apply](#12-apply)
+      * [1\.3 Present](#13-present)
+    * [Section 2: Logic level converter](#section-2-logic-level-converter)
+      * [2\.1 Study](#21-study)
+      * [2\.2 Apply](#22-apply)
+      * [2\.3 Present](#23-present)
+    * [Section 3: Clock signal from the micro:bit](#section-3-clock-signal-from-the-microbit)
+      * [3\.1 Study](#31-study)
+      * [3\.2 Apply](#32-apply)
+      * [3\.3 Present](#33-present)
+    * [Section 4: D\-type flip\-flop](#section-4-d-type-flip-flop)
+      * [4\.1 Study](#41-study)
+        * [Notes on reading the datasheet](#notes-on-reading-the-datasheet)
+      * [4\.2 Apply](#42-apply)
+      * [4\.3 Present](#43-present)
+    * [Section 5: Reading clocked flip\-flop output with the micro:bit](#section-5-reading-clocked-flip-flop-output-with-the-microbit)
+      * [5\.1 Study](#51-study)
+      * [5\.2 Apply](#52-apply)
+      * [5\.3 Present](#53-present)
+    * [Section 6: 3\-bit modulus counter](#section-6-3-bit-modulus-counter)
+      * [6\.1 Study](#61-study)
+      * [6\.2 Apply](#62-apply)
+      * [6\.3 Present](#63-present)
+    * [Section 7: Display decoded counter output on micro:bit LED matrix](#section-7-display-decoded-counter-output-on-microbit-led-matrix)
+      * [7\.1 Study](#71-study)
+      * [7\.2 Apply](#72-apply)
+      * [7\.3 Present](#73-present)
+    * [Section 8: Flip\-flop control signals](#section-8-flip-flop-control-signals)
+      * [8\.1 Study](#81-study)
+      * [8\.2 Apply](#82-apply)
+      * [8\.3 Present](#83-present)
+  * [Resources](#resources)
+    * [micro:bit](#microbit)
+    * [Transistors](#transistors)
+      * [Transistor datasheets](#transistor-datasheets)
+    * [Flip\-flops](#flip-flops)
+      * [Flip\-flop datasheets](#flip-flop-datasheets)
+    * [Capacitors](#capacitors)
+    * [Sensors](#sensors)
+    * [Logic level converter](#logic-level-converter)
+    * [Oscilloscopes](#oscilloscopes)
+    * [Github](#github)
+    * [JavaScript](#javascript)
+
 **NOTE:** 
 1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the **Lab Notebook** for the study & submission. _It is a great aid for your study and the main component of your submission._
 2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
@@ -30,12 +85,12 @@ The human mind is a very fine machine with amazing capabilities. And like any co
 
 ##### Learning How to Learn 01
 
-1. The pain of learning.
+1. The pain of learning.    
    Knowledge is contain in the brain in complex neural structures, often distributed across the whole brain. Learning new knowledge is the process of _attaching_ or _fitting_ new concepts to your already existing _knowledge network_, and often requires significant rearranging to accomplish. This process is associated with _mild forms of pain and discomfort_. 
    
    TO DO: Learn to expect the natural discomfort that comes with learning and don't be afraid of it. Give it time. Approach the new concept from several different directions. Do not ever think that you are not good at this. You are already doing this just as everyone else. As your brain adjusts to the new knowledge, the pain goes away.
    
-2. Focus & distraction.
+2. Focus & distraction.    
    It might sound counterintuitive at first that both _focus_ and _distraction_ are important for learning, not just focus. The brain does different functions during focus and distraction, and all these functions contribute important steps to the learning process. Focus provides the ability to select a handful of related concepts, lock them into short-term memory, and apply directed effort to attach a new concept or set of concepts to the already existing knowledge. Incidentally, this is what is called _thinking_. Distraction helps the brain relax, recharge, and clean up.
    
    TO DO: The so called [_pomodoro technique_](https://francescocirillo.com/pages/pomodoro-technique) is a simple, yet effective way to gain operational control over periods of focus and distraction. Use a kitchen timer or the [online tomato timer](https://tomato-timer.com/), set it to 25 minutes and sit down to work a problem, keeping all distractions away (phone, other family members, bathroom, etc). Do your best to keep only the relevant concepts in mind and work the problem at hand. When the timer goes off, take a 5 minute distraction break. Take it as a reward, a chance to get brief relief from the discomfort. And practice. Like everything else, it takes some time to tell the difference and notice the effects. _Hint: 25 minutes is the average time the [hippocampus](https://en.wikipedia.org/wiki/Hippocampus) can remain fully active before it needs to rest. Some brains may be capable of less, say 15 minutes, or more, say 45 minutes. The online timer has adjustable settings, so you can experiment to find what works best for you._ 
