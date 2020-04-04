@@ -4,7 +4,7 @@ Author: Ivo Georgiev, PhD
 Last updated: 2020-03-19   
 Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87      
 
-![alt text](images/microbit-3-bit-counter-decode.jpg "Final circuit for CPE 1040 Asst 6")
+![alt text](images/final-circuit.jpg "Final circuit for CPE 1040 Asst 6")
 
 This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
