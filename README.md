@@ -18,3 +18,10 @@ Art acknowledgement: [taag](http://patorjk.com/software/taag/)
 4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
 ---
 _Your study and submission work here..._
+1: I did the exercises but didn't commit the changes and I wrote everything down on this notebook. Lesson learned: Save constantly and write out notes.
+2: 
+2.1:
+2.2:
+2.3:
+2.4: 2.62V on voltmeter measuring at the HV terminal.
+2.5: Had trouble setting up the circuit. Was connecting to the long board ground and not the Microbit ground. Still 2.62V.
