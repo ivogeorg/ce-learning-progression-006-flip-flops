@@ -440,7 +440,7 @@ To counteract such effect, we need to understand more about the inner workings o
    1. Is your counter displaying correctly? 
    2. Do you notice some numbers displaying longer than others (that is, clock skew)? 
    3. Does the unevenness, if any, change with increasing or decreasing the clock frequency? Why or why not? 
-   4. Is the (0, 0) LED still blink evenly with the clock? Why or why not?
+   4. Does the (0, 0) LED still blink evenly with the clock? Why or why not?
 3. Revisit your discussion on separating subprograms in multiple `forever` loops.
 
 #### 7.3 Present
