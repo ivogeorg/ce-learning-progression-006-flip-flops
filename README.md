@@ -1,5 +1,5 @@
 # CPE 1040 - Spring 2020
-v```
+```
   _           _       _   _       _       _                 _    
  | |         | |     | \ | |     | |     | |               | |   
  | |     __ _| |__   |  \| | ___ | |_ ___| |__   ___   ___ | | __
@@ -17,7 +17,11 @@ Art acknowledgement: [taag](http://patorjk.com/software/taag/)
 2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
 4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
 ---
+
 _Your study and submission work here..._
+
+[Project image and video gallery on Imgur](https://imgur.com/gallery/uz29xHA)_(added for clarity by Ivo, 2020-05-16)_
+
 1: I did the exercises but didn't commit the changes and I wrote everything down on this notebook. Lesson learned: Save constantly and write out notes.
 2: https://imgur.com/gallery/uz29xHA 
 2.1:
