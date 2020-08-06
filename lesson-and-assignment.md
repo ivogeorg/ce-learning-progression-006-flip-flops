@@ -14,8 +14,6 @@ Table of Contents
 * [CPE 1040 \- Spring 2020](#cpe-1040---spring-2020)
   * [Take\-home lab kit](#take-home-lab-kit)    
         * [Practice](#practice)
-  * [Learning how to learn](#learning-how-to-learn)    
-        * [Learning How to Learn 01](#learning-how-to-learn-01)
   * [Lesson &amp; Assignment 006: Flip\-flops](#lesson--assignment-006-flip-flops)
     * [Section 1: Capacitors](#section-1-capacitors)
       * [1\.1 Study](#11-study)
@@ -78,22 +76,6 @@ The take-home lab kit is meant to provide continuity of our lab projects across 
 We advise you to build a small circuit just to break it in. Suggestions:
 1. Build our basic resistor and standalone LED on the long breadboard, and power it with 3.3V and 5V, using the power supply switch. _Is there a marked difference in brightness?_
 2. Add a NPN transistor switch to the circuit, using the breadboard power supply ON-OFF switch as the base switch.
-
-## Learning how to learn
-
-The human mind is a very fine machine with amazing capabilities. And like any complex mechanism, it takes study to learn to use it effectively. This standalone section will contain practical information and advice for learning how to learn.
-
-##### Learning How to Learn 01
-
-1. The pain of learning.    
-   Knowledge is contain in the brain in complex neural structures, often distributed across the whole brain. Learning new knowledge is the process of _attaching_ or _fitting_ new concepts to your already existing _knowledge network_, and often requires significant rearranging to accomplish. This process is associated with _mild forms of pain and discomfort_. 
-   
-   TO DO: Learn to expect the natural discomfort that comes with learning and don't be afraid of it. Give it time. Approach the new concept from several different directions. Do not ever think that you are not good at this. You are already doing this just as everyone else. As your brain adjusts to the new knowledge, the pain goes away.
-   
-2. Focus & distraction.    
-   It might sound counterintuitive at first that both _focus_ and _distraction_ are important for learning, not just focus. The brain does different functions during focus and distraction, and all these functions contribute important steps to the learning process. Focus provides the ability to select a handful of related concepts, lock them into short-term memory, and apply directed effort to attach a new concept or set of concepts to the already existing knowledge. Incidentally, this is what is called _thinking_. Distraction helps the brain relax, recharge, and clean up.
-   
-   TO DO: The so called [_pomodoro technique_](https://francescocirillo.com/pages/pomodoro-technique) is a simple, yet effective way to gain operational control over periods of focus and distraction. Use a kitchen timer or the [online tomato timer](https://tomato-timer.com/), set it to 25 minutes and sit down to work a problem, keeping all distractions away (phone, other family members, bathroom, etc). Do your best to keep only the relevant concepts in mind and work the problem at hand. When the timer goes off, take a 5 minute distraction break. Take it as a reward, a chance to get brief relief from the discomfort. And practice. Like everything else, it takes some time to tell the difference and notice the effects. _Hint: 25 minutes is the average time the [hippocampus](https://en.wikipedia.org/wiki/Hippocampus) can remain fully active before it needs to rest. Some brains may be capable of less, say 15 minutes, or more, say 45 minutes. The online timer has adjustable settings, so you can experiment to find what works best for you._ 
 
 ## Lesson & Assignment 006: Flip-flops
 
