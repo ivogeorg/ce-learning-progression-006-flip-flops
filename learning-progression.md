@@ -15,36 +15,36 @@ Table of Contents
   * [Take\-home lab kit](#take-home-lab-kit)    
         * [Practice](#practice)
   * [Learning Progression 006: Flip\-flops](#learning-progression-006-flip-flops)
-    * [Section 1: Capacitors](#section-1-capacitors)
+    * [Step 1: Capacitors](#section-1-capacitors)
       * [1\.1 Study](#11-study)
       * [1\.2 Apply](#12-apply)
       * [1\.3 Present](#13-present)
-    * [Section 2: Logic level converter](#section-2-logic-level-converter)
+    * [Step 2: Logic level converter](#section-2-logic-level-converter)
       * [2\.1 Study](#21-study)
       * [2\.2 Apply](#22-apply)
       * [2\.3 Present](#23-present)
-    * [Section 3: Clock signal from the micro:bit](#section-3-clock-signal-from-the-microbit)
+    * [Step 3: Clock signal from the micro:bit](#section-3-clock-signal-from-the-microbit)
       * [3\.1 Study](#31-study)
       * [3\.2 Apply](#32-apply)
       * [3\.3 Present](#33-present)
-    * [Section 4: D\-type flip\-flop](#section-4-d-type-flip-flop)
+    * [Step 4: D\-type flip\-flop](#section-4-d-type-flip-flop)
       * [4\.1 Study](#41-study)
         * [Notes on reading the datasheet](#notes-on-reading-the-datasheet)
       * [4\.2 Apply](#42-apply)
       * [4\.3 Present](#43-present)
-    * [Section 5: Reading clocked flip\-flop output with the micro:bit](#section-5-reading-clocked-flip-flop-output-with-the-microbit)
+    * [Step 5: Reading clocked flip\-flop output with the micro:bit](#section-5-reading-clocked-flip-flop-output-with-the-microbit)
       * [5\.1 Study](#51-study)
       * [5\.2 Apply](#52-apply)
       * [5\.3 Present](#53-present)
-    * [Section 6: 3\-bit modulus counter](#section-6-3-bit-modulus-counter)
+    * [Step 6: 3\-bit modulus counter](#section-6-3-bit-modulus-counter)
       * [6\.1 Study](#61-study)
       * [6\.2 Apply](#62-apply)
       * [6\.3 Present](#63-present)
-    * [Section 7: Display decoded counter output on micro:bit LED matrix](#section-7-display-decoded-counter-output-on-microbit-led-matrix)
+    * [Step 7: Display decoded counter output on micro:bit LED matrix](#section-7-display-decoded-counter-output-on-microbit-led-matrix)
       * [7\.1 Study](#71-study)
       * [7\.2 Apply](#72-apply)
       * [7\.3 Present](#73-present)
-    * [Section 8: Flip\-flop control signals](#section-8-flip-flop-control-signals)
+    * [Step 8: Flip\-flop control signals](#section-8-flip-flop-control-signals)
       * [8\.1 Study](#81-study)
       * [8\.2 Apply](#82-apply)
       * [8\.3 Present](#83-present)
@@ -87,7 +87,7 @@ This progression introduces _capacitors_, _logic level conversion_, _flip-flops_
 
 The goal of this assignment is to create a _modulus counter_ out of _D-type_ flip-flops, drive it from the micro:bit, and read off the 3-bit binary output with the micro:bit. The final build is shown in the image above. 
 
-### Section 1: Capacitors
+### Step 1: Capacitors
 
 #### 1.1 Study
 
@@ -137,7 +137,7 @@ In the [Lab Notebook](README.md), include:
 2. The approximate time to charge and discharge the capacitor. (2 values)
 3. An instantaneous value for the charging and discharging currents. (2 values) _Note: These currents are not constant, and with this equipment we may only be able to capture an instantaneous non-zero current value._
 
-### Section 2: Logic level converter
+### Step 2: Logic level converter
 
 #### 2.1 Study
 
@@ -164,7 +164,7 @@ In the [repository](./), include:
 1. File `microbit-program-2-2-3.js` with the code you used in task 2.2.3.
 2. File `microbit-program-2-2-5.js` with the code you used in task 2.2.5.
 
-### Section 3: Clock signal from the micro:bit
+### Step 3: Clock signal from the micro:bit
 
 #### 3.1 Study
 
@@ -220,7 +220,7 @@ In the [repository](./), include:
 1. File `microbit-program-3-2-2.js` with the code you used in task 3.2.2.
 2. File `microbit-program-3-2-3.js` with the code you used in task 3.2.3.
 
-### Section 4: D-type flip-flop
+### Step 4: D-type flip-flop
 
 #### 4.1 Study
 
@@ -271,7 +271,7 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-4-2-4.js` with the code you used in task 4.2.4.
 
-### Section 5: Reading clocked flip-flop output with the micro:bit
+### Step 5: Reading clocked flip-flop output with the micro:bit
 
 #### 5.1 Study
 
@@ -283,7 +283,7 @@ Study the micro:bit JavaScript function [`onPulsed`](https://makecode.microbit.o
 3. Look at the function signature (name + argument types + return type) and asnwer the question _what the event being handled here is_.
 4. Look at the arguments and answer the question _what the event handler is in this case_.
 5. Bearing in mind that the alternating voltage levels of the square wave are also called _pulses_, notice the second argument of `onPulsed`, remember the signal events for the square wave, and answer the question _which of the events we can specify_.
-6. Considering that we want to read the flip-flop output at the right moment in time, think about when our flip-flop changes state and answer the question _what value we should pick for the second argument of the pulse event handler setter_. _Hint: Look ahead at the top two lines of the [Timing Diagram](https://github.com/ivogeorg/ce-lesson-and-asst-006-flip-flops/blob/master/images/timing-diagram.jpg) in Section 6._
+6. Considering that we want to read the flip-flop output at the right moment in time, think about when our flip-flop changes state and answer the question _what value we should pick for the second argument of the pulse event handler setter_. _Hint: Look ahead at the top two lines of the [Timing Diagram](https://github.com/ivogeorg/ce-lesson-and-asst-006-flip-flops/blob/master/images/timing-diagram.jpg) in Step 6._
 
 #### 5.2 Apply
 
@@ -332,7 +332,7 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-5-2-4.js` with the code you used in task 5.2.4.
 
-### Section 6: 3-bit modulus counter
+### Step 6: 3-bit modulus counter
 
 #### 6.1 Study
 
@@ -377,7 +377,7 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-6-2-5.js` with the code you used in task 6.2.5.
 
-### Section 7: Display decoded counter output on micro:bit LED matrix
+### Step 7: Display decoded counter output on micro:bit LED matrix
 
 #### 7.1 Study
 
@@ -436,7 +436,7 @@ In the [Lab Notebook](README.md), include:
 In the [repository](./), include:
 1. File `microbit-program-7-2-2.js` with the code you used in task 7.2.2.
 
-### Section 8: Flip-flop control signals
+### Step 8: Flip-flop control signals
 
 #### 8.1 Study
 
