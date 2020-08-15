@@ -6,7 +6,7 @@ Code: b7700c9ccc9a009aacc7e5451992c43cc3135f87
 
 ![alt text](images/final-circuit.jpg "Final circuit for CPE 1040 Asst 6")
 
-This is lesson and assignment 006 for the Spring 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
+This is learning progression 006 for the Fall 2020 installment of the CPE 1040 - Intro to Computer Engineering course at MSU Denver.
 
 Table of Contents
 =================
@@ -14,7 +14,7 @@ Table of Contents
 * [CPE 1040 \- Spring 2020](#cpe-1040---spring-2020)
   * [Take\-home lab kit](#take-home-lab-kit)    
         * [Practice](#practice)
-  * [Lesson &amp; Assignment 006: Flip\-flops](#lesson--assignment-006-flip-flops)
+  * [Learning Progression 006: Flip\-flops](#learning-progression-006-flip-flops)
     * [Section 1: Capacitors](#section-1-capacitors)
       * [1\.1 Study](#11-study)
       * [1\.2 Apply](#12-apply)
@@ -62,8 +62,8 @@ Table of Contents
     * [JavaScript](#javascript)
 
 **NOTE:** 
-1. This lesson & assignment [README](README.md) is _intentionally_ blank, to be used as the **Lab Notebook** for the study & submission. _It is a great aid for your study and the main component of your submission._
-2. Read and follow the [lesson-and-assignment](lesson-and-assignment.md).
+1. The progression [README](README.md) is _intentionally_ blank, to be used as the **Lab Notebook** for the study & submission. _It is a great aid for your study and the main component of your submission._
+2. Read and follow the [progression](progression.md).
 2. Refer to the [submission template](submission-template.md) for formatting expectations and examples. 
 4. Refer to the [criteria and guide](criteria-and-guide.md) for the different components of your submission.
 
@@ -77,9 +77,9 @@ We advise you to build a small circuit just to break it in. Suggestions:
 1. Build our basic resistor and standalone LED on the long breadboard, and power it with 3.3V and 5V, using the power supply switch. _Is there a marked difference in brightness?_
 2. Add a NPN transistor switch to the circuit, using the breadboard power supply ON-OFF switch as the base switch.
 
-## Lesson & Assignment 006: Flip-flops
+## Learning Progression 006: Flip-flops
 
-This assignment & lesson introduces _capacitors_, _logic level conversion_, _flip-flops_, and _counters_:
+This progression introduces _capacitors_, _logic level conversion_, _flip-flops_, and _counters_:
   1. Capacitors are static circuit elements that can hold charge.   
   2. Flip-flops (aka _latches_) are among the simplest circuits that can have two different stable _states_ and their principle of operation lies at the basis of computer memory.    
   3. When two circuits work at differnet voltages, say 3.3V and 5V, any signals between them have to be safely converted.   
@@ -141,7 +141,7 @@ In the [Lab Notebook](README.md), include:
 
 #### 2.1 Study
 
-The micro:bit works at 3.3V while we have to operate the circuit on the long breadboard at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/). Read the [short section in Lesson 006: Memory on binary numbers](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.2bm72yu21rie).
+The micro:bit works at 3.3V while we have to operate the circuit on the long breadboard at 5V. This means that a _logic high_ in the two circuits is actually at different voltages. Logic level voltages are a [big deal](https://www.allaboutcircuits.com/textbook/digital/chpt-3/logic-signal-voltage-levels/). Read the [short section in 006: Memory on binary numbers](https://docs.google.com/document/d/1TiirGwXiKg6ehxjVPpW-ISQryf8eqycvG4PZMq8cm2U/edit#heading=h.2bm72yu21rie).
 
 Most importantly for us, the two circuits should **not** be connected directly to each other (as we did in the last assignment :D). Instead, we use a voltage (aka logic) level converter circuit to bridge the micro:bit and long breadboard circuits. We will be using [one of two voltage level boards](https://docs.google.com/document/d/18IDsrQlZY_QkmWG7FFtGqd9M2S1wL8ShJrD00aHwBwQ/edit#heading=h.fx9d22emrhnr). On the [board diagram of Bi-Directional Logic Level Converter](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide#board-overview), notice the [zener diode](https://www.digikey.com/en/maker/blogs/zener-diode-basic-operation-and-applications) across the FET, pointing from low voltage to high voltage!
 
