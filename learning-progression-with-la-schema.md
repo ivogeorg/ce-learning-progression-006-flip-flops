@@ -8,8 +8,10 @@
 2. Logic level (aka voltage) converter  
 3. State, memory, and sequential circuits  
 4. Clock signal from the micro:bit  
-5. D-type flip-flop  
-6. Reading clocked flip-flop output with the micro:bit  
-7. 3-bit modulus counter  
-8. Display decoded counter output on micro:bit LED matrix  
-9. Flip-flop control signals  
+5. Simulating D-flip-flop in [CircuitJS](http://lushprojects.com/circuitjs/)  
+6. D-type flip-flop  
+7. Reading clocked flip-flop output with the micro:bit  
+8. 3-bit modulus counter  
+9. Display decoded counter output on micro:bit LED matrix  
+10. Flip-flop control signals  
+11. 
